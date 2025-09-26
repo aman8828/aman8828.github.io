@@ -1,515 +1,192 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>About Us Generator — Premium</title>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --bg:#0f1724;
-      --card:#0b1624;
-      --muted:#98a0b3;
-      --accent1:#7c3aed;
-      --accent2:#06b6d4;
-      --glass: rgba(255,255,255,0.04);
-      --radius:16px;
+      import React, { useState } from "react";
+
+// AboutUsGenerator.jsx with SEO + Article Mode
+export default function AboutUsGenerator() {
+  const [company, setCompany] = useState("");
+  const [industry, setIndustry] = useState("");
+  const [mission, setMission] = useState("");
+  const [values, setValues] = useState("");
+  const [audience, setAudience] = useState("");
+  const [tone, setTone] = useState("Professional");
+  const [length, setLength] = useState(160);
+  const [variantCount, setVariantCount] = useState(3);
+  const [variants, setVariants] = useState([]);
+  const [seoKeywords, setSeoKeywords] = useState("");
+  const [seoMode, setSeoMode] = useState(true);
+  const [articleMode, setArticleMode] = useState(false);
+
+  // Templates (short About Us)
+  const templates = {
+    Professional: [
+      "<h1>About {company}</h1><p>{company} is a {industry} company committed to {mission}. Guided by {values}, we proudly serve {audience}. {keywords}</p>",
+      "<h1>{company} — Leaders in {industry}</h1><p>At {company}, our mission is {mission}. Rooted in {values}, we deliver solutions that help {audience} thrive. {keywords}</p>",
+    ],
+    Friendly: [
+      "<h1>Hello from {company}</h1><p>We’re a {industry} brand on a mission to {mission}. We value {values} and love serving {audience}. {keywords}</p>",
+      "<h1>Welcome to {company}</h1><p>We make {industry} easy. Our mission: {mission}. Our passion: {values}. Proudly supporting {audience}. {keywords}</p>",
+    ],
+    Inspirational: [
+      "<h1>{company} Vision</h1><p>Founded to {mission}, {company} blends {values} with {industry} expertise to uplift {audience}. {keywords}</p>",
+      "<h1>Why {company}</h1><p>At {company}, we aspire to {mission}. With {values}, we transform {industry} for {audience}. {keywords}</p>",
+    ],
+  };
+
+  function pickTemplate(toneName) {
+    const arr = templates[toneName] || templates.Professional;
+    return arr[Math.floor(Math.random() * arr.length)];
+  }
+
+  function shortOrLong(base, lengthTarget) {
+    if (!base) return base;
+    if (base.length > lengthTarget) return base.slice(0, lengthTarget) + "...";
+    return base;
+  }
+
+  function generateShort() {
+    const tmpl = pickTemplate(tone);
+    const filled = tmpl
+      .replace(/\{company\}/g, company || "[Company]")
+      .replace(/\{industry\}/g, industry || "[Industry]")
+      .replace(/\{mission\}/g, mission || "[mission]")
+      .replace(/\{values\}/g, values || "[values]")
+      .replace(/\{audience\}/g, audience || "[audience]")
+      .replace(/\{keywords\}/g, seoMode && seoKeywords ? `SEO keywords: ${seoKeywords}` : "");
+    return shortOrLong(filled, length);
+  }
+
+  function generateArticle() {
+    const kw = seoMode && seoKeywords ? seoKeywords : "";
+    const meta = `<meta name=\"description\" content=\"${company} is a ${industry} company ${mission}. ${kw}\"/>`;
+    return `
+      <h1>About ${company || "[Company]"}</h1>
+      <p>${company || "[Company]"} is a leading ${industry || "[Industry]"} company. Our mission is ${mission || "[mission]"}. ${kw}</p>
+
+      <h2>Our Story</h2>
+      <p>Founded with the vision to ${mission || "[mission]"}, ${company || "[Company]"} has grown into a trusted name in ${industry || "[Industry]"}. Guided by ${values || "[values]"}, we’ve built strong relationships with ${audience || "[audience]"}.</p>
+
+      <h2>Our Mission</h2>
+      <p>We aim to ${mission || "[mission]"}, making an impact on ${audience || "[audience]"} while upholding ${values || "[values]"}.</p>
+
+      <h2>Our Core Values</h2>
+      <p>${values || "[values]"} define everything we do. These values ensure our ${industry || "[Industry]"} services deliver consistent quality.</p>
+
+      <h2>Who We Serve</h2>
+      <p>Our solutions are tailored for ${audience || "[audience]"}. We strive to create meaningful connections and long-lasting results.</p>
+
+      <h2>Why Choose Us</h2>
+      <p>Choosing ${company || "[Company]"} means partnering with a ${industry || "[Industry]"} leader driven by ${values || "[values]"}. We don’t just promise — we deliver.</p>
+
+      ${meta}
+    `;
+  }
+
+  function generateMultiple() {
+    const outs = [];
+    for (let i = 0; i < Math.max(1, variantCount); i++) {
+      if (articleMode) outs.push(generateArticle());
+      else outs.push(generateShort());
     }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
-      background: radial-gradient(1200px 600px at 10% 20%, rgba(124,58,237,0.08), transparent),
-                  radial-gradient(1000px 500px at 90% 80%, rgba(6,182,212,0.06), transparent),
-                  var(--bg);
-      color:#e6eef8;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      padding:48px;
-    }
-    .container{
-      max-width:1100px;
-      margin:0 auto;
-      display:grid;
-      grid-template-columns: 420px 1fr;
-      gap:28px;
-      align-items:start;
-    }
-    .panel{
-      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      border-radius:var(--radius);
-      padding:22px;
-      box-shadow: 0 6px 30px rgba(2,6,23,0.6), inset 0 1px 0 rgba(255,255,255,0.02);
-      border: 1px solid rgba(255,255,255,0.03);
-    }
-    header.site-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
-    .logo{
-      display:flex;gap:12px;align-items:center
-    }
-    .logo .mark{
-      width:44px;height:44px;border-radius:12px;
-      background:linear-gradient(135deg,var(--accent1),var(--accent2));
-      display:flex;align-items:center;justify-content:center;font-weight:800;color:white;box-shadow:0 6px 18px rgba(12,10,20,0.6);
-    }
-    .title{font-weight:700;font-size:18px}
-    .subtitle{color:var(--muted);font-size:13px}
+    setVariants(outs);
+  }
 
-    label{display:block;font-size:13px;margin-bottom:6px;color:var(--muted)}
-    input[type="text"], select, textarea{
-      width:100%;padding:10px 12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit;font-size:14px;outline:none
-    }
-    textarea{min-height:90px;resize:vertical}
-    .row{display:flex;gap:12px}
+  function copyToClipboard(text) {
+    navigator.clipboard.writeText(text).then(() => alert("Copied!"));
+  }
 
-    .option-block{margin-bottom:14px}
-    .small{font-size:12px;color:var(--muted)}
+  function downloadContent(text, type = "txt") {
+    const blob = new Blob([text], { type: type === "html" ? "text/html" : "text/plain" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `${(company || "aboutus").replace(/\s+/g, "_")}.${type}`;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+  }
 
-    .controls{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
-    .btn{display:inline-flex;gap:10px;align-items:center;cursor:pointer;border:0;padding:10px 14px;border-radius:10px;font-weight:600}
-    .btn-primary{background:linear-gradient(90deg,var(--accent1),var(--accent2));color:white;box-shadow: 0 8px 30px rgba(7,8,20,0.6);}
-    .btn-ghost{background:var(--glass);color:var(--muted);border:1px solid rgba(255,255,255,0.03)}
-    .btn-white{background:white;color:var(--bg);font-weight:700}
+  return (
+    <div className="min-h-screen bg-gray-50 p-6 md:p-12">
+      <div className="max-w-5xl mx-auto space-y-6">
+        <header>
+          <h1 className="text-3xl font-extrabold">SEO Optimized About Us + Article Generator</h1>
+          <p className="text-gray-600 mt-1">Generate short keyword-rich About Us sections or full article-style company pages.</p>
+        </header>
 
-    .preview{
-      padding:22px;border-radius:12px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);min-height:360px;position:relative;border:1px solid rgba(255,255,255,0.02)
-    }
-    .preview h2{margin:0 0 10px 0;font-size:22px}
-    .preview p{margin:0 0 12px 0;color:var(--muted);line-height:1.5}
+        <main className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <section className="col-span-2 bg-white p-6 rounded-2xl shadow-sm">
+            <h2 className="text-xl font-semibold mb-4">Inputs</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <input value={company} onChange={(e) => setCompany(e.target.value)} placeholder="Company name" className="p-2 rounded-md border" />
+              <input value={industry} onChange={(e) => setIndustry(e.target.value)} placeholder="Industry" className="p-2 rounded-md border" />
+              <textarea value={mission} onChange={(e) => setMission(e.target.value)} placeholder="Mission" className="p-2 rounded-md border md:col-span-2" />
+              <input value={values} onChange={(e) => setValues(e.target.value)} placeholder="Core values" className="p-2 rounded-md border md:col-span-2" />
+              <input value={audience} onChange={(e) => setAudience(e.target.value)} placeholder="Audience" className="p-2 rounded-md border md:col-span-2" />
+              <input value={seoKeywords} onChange={(e) => setSeoKeywords(e.target.value)} placeholder="SEO Keywords (comma separated)" className="p-2 rounded-md border md:col-span-2" />
 
-    .meta{display:flex;gap:12px;align-items:center;margin-top:12px}
-    .pill{background:rgba(255,255,255,0.03);padding:6px 10px;border-radius:999px;font-size:12px;color:var(--muted)}
+              <label className="flex items-center gap-2">
+                <input type="checkbox" checked={seoMode} onChange={(e) => setSeoMode(e.target.checked)} /> Enable SEO Mode
+              </label>
+              <label className="flex items-center gap-2">
+                <input type="checkbox" checked={articleMode} onChange={(e) => setArticleMode(e.target.checked)} /> Generate Full Article
+              </label>
 
-    footer.foot{margin-top:18px;font-size:12px;color:var(--muted);display:flex;justify-content:space-between;align-items:center}
+              <select value={tone} onChange={(e) => setTone(e.target.value)} className="p-2 rounded-md border">
+                <option>Professional</option>
+                <option>Friendly</option>
+                <option>Inspirational</option>
+              </select>
+              <input type="number" value={variantCount} onChange={(e) => setVariantCount(Number(e.target.value))} min={1} max={10} className="p-2 rounded-md border" />
+              <input type="range" value={length} min={60} max={500} onChange={(e) => setLength(Number(e.target.value))} className="md:col-span-2" />
+            </div>
 
-    /* responsive */
-    @media (max-width:980px){
-      .container{grid-template-columns:1fr; padding:0 10px}
-    }
+            <div className="mt-4 flex gap-3">
+              <button onClick={generateMultiple} className="px-4 py-2 rounded-md bg-indigo-600 text-white">Generate</button>
+              <button onClick={() => { setCompany(""); setIndustry(""); setMission(""); setValues(""); setAudience(""); setSeoKeywords(""); setVariants([]); }} className="px-4 py-2 rounded-md border">Clear</button>
+            </div>
+          </section>
 
-    /* little animations */
-    .fade-in{animation:fadeIn .5s ease both}
-    @keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
-
-    .controls .btn svg{width:16px;height:16px}
-
-    .tone-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
-    .tone-item{padding:8px;border-radius:10px;text-align:center;cursor:pointer;border:1px solid rgba(255,255,255,0.02)}
-    .tone-item.active{box-shadow:0 6px 18px rgba(12,10,20,0.6);border:1px solid rgba(255,255,255,0.06);background:linear-gradient(90deg, rgba(124,58,237,0.08), rgba(6,182,212,0.04));}
-
-    .length-slider{display:flex;align-items:center;gap:10px}
-    input[type=range]{width:100%}
-
-    .template-list{display:flex;flex-direction:column;gap:8px}
-    .template-card{padding:10px;border-radius:10px;background:rgba(255,255,255,0.02);cursor:pointer}
-
-    .brand-preview{display:flex;gap:12px;align-items:center}
-    .brand-logo{width:56px;height:56px;border-radius:10px;background:linear-gradient(135deg,var(--accent1),var(--accent2));display:flex;align-items:center;justify-content:center;font-weight:800}
-  </style>
-</head>
-<body>
-  <div class="container">
-    <div class="panel fade-in" aria-hidden="false">
-      <header class="site-header">
-        <div class="logo">
-          <div class="mark">AU</div>
-          <div>
-            <div class="title">About Us — Generator</div>
-            <div class="subtitle">Craft premium "About Us" sections in seconds</div>
-          </div>
-        </div>
-        <div class="small">v1.0 • Offline • No libraries</div>
-      </header>
-
-      <div class="option-block">
-        <label for="company">Company / Brand name</label>
-        <input id="company" type="text" placeholder="Acme Solutions" value="Acme Solutions" />
+          <aside className="bg-white p-6 rounded-2xl shadow-sm">
+            <h2 className="text-xl font-semibold mb-4">Preview & Actions</h2>
+            <div className="space-y-3">
+              {variants.length ? variants.map((v, i) => (
+                <div key={i} className="p-3 border rounded-md bg-gray-50">
+                  <div className="text-sm text-gray-500 mb-2">Variant {i+1}</div>
+                  <div className="prose" dangerouslySetInnerHTML={{ __html: v }} />
+                  <div className="flex gap-2 mt-2">
+                    <button onClick={() => copyToClipboard(v)} className="px-3 py-1 border rounded">Copy</button>
+                    <button onClick={() => downloadContent(v, "html") } className="px-3 py-1 border rounded">Download HTML</button>
+                    <button onClick={() => downloadContent(v, "txt") } className="px-3 py-1 border rounded">Download TXT</button>
+                  </div>
+                </div>
+              )) : (
+                <p className="text-gray-500">No content yet. Enter details and click Generate.</p>
+              )}
+            </div>
+          </aside>
+        </main>
       </div>
-
-      <div class="option-block">
-        <label for="industry">Industry</label>
-        <select id="industry">
-          <option>Technology</option>
-          <option>Healthcare</option>
-          <option>Finance</option>
-          <option>Education</option>
-          <option>Retail</option>
-          <option>Consulting</option>
-          <option>Nonprofit</option>
-          <option>Creative Agency</option>
-        </select>
-      </div>
-
-      <div class="option-block">
-        <label for="mission">One-line mission (optional)</label>
-        <input id="mission" type="text" placeholder="Making complex things simple" />
-        <div class="small">Leave empty to auto-generate a mission from the other inputs.</div>
-      </div>
-
-      <div class="option-block">
-        <label>Company tone</label>
-        <div class="tone-grid" id="toneGrid">
-          <div class="tone-item active" data-tone="Professional">Professional</div>
-          <div class="tone-item" data-tone="Friendly">Friendly</div>
-          <div class="tone-item" data-tone="Playful">Playful</div>
-          <div class="tone-item" data-tone="Inspirational">Inspirational</div>
-          <div class="tone-item" data-tone="Minimal">Minimal</div>
-          <div class="tone-item" data-tone="Bold">Bold</div>
-        </div>
-      </div>
-
-      <div class="option-block">
-        <label>Length</label>
-        <div class="length-slider">
-          <input id="lengthRange" type="range" min="1" max="5" value="3" />
-          <div class="pill" id="lengthLabel">Medium</div>
-        </div>
-      </div>
-
-      <div class="option-block">
-        <label>Template (quick picks)</label>
-        <div class="template-list" id="templates">
-          <div class="template-card" data-template="classic">Classic — mission, values, CTA</div>
-          <div class="template-card" data-template="story">Founder's Story — origin, growth</div>
-          <div class="template-card" data-template="tech">Product-first — what & how</div>
-          <div class="template-card" data-template="impact">Impact — social & sustainability</div>
-        </div>
-      </div>
-
-      <div class="controls" style="margin-top:18px">
-        <button class="btn btn-primary" id="generateBtn">
-          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          Generate
-        </button>
-        <button class="btn btn-ghost" id="surpriseBtn">Surprise me</button>
-        <button class="btn btn-ghost" id="presetBtn">Load Preset</button>
-      </div>
-
-      <div style="margin-top:16px">
-        <label for="keywords">Keywords / Phrases (comma separated)</label>
-        <input id="keywords" placeholder="innovation, customer-first, sustainable" />
-      </div>
-
-      <footer class="foot">
-        <div class="small">Pro tips: use crisp verbs. Keep 2–3 unique selling points.</div>
-        <div class="small">Export: Copy or Download after generating.</div>
-      </footer>
     </div>
+  );
+}
 
-    <div class="panel fade-in">
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
-        <div class="brand-preview">
-          <div class="brand-logo" id="brandMark">AS</div>
-          <div>
-            <div id="brandName" style="font-weight:700;font-size:16px">Acme Solutions</div>
-            <div class="small" id="brandIndustry">Technology</div>
-          </div>
-        </div>
-        <div style="display:flex;gap:8px">
-          <button class="btn btn-ghost" id="copyBtn" title="Copy output">Copy</button>
-          <button class="btn btn-white" id="downloadBtn" title="Download as txt">Download</button>
-        </div>
-      </div>
+                <h1>About Acme Co. — Innovators in Cloud Software</h1>
+<p>Acme Co. is a leading cloud software company dedicated to making complex workflows simple. Guided by innovation, transparency, and reliability, our mission is to empower small and mid-sized teams worldwide.</p>
 
-      <div class="preview" id="preview" contenteditable="false" aria-live="polite">
-        <h2 id="previewTitle">About Acme Solutions</h2>
-        <p id="previewBody">Generate a premium About Us section using the panel on the left. Choose tone, length and template — then click <strong>Generate</strong>.</p>
-        <div class="meta" aria-hidden="true">
-          <div class="pill" id="metaTone">Tone: Professional</div>
-          <div class="pill" id="metaLength">Length: Medium</div>
-          <div class="pill" id="metaTemplate">Template: Classic</div>
-        </div>
-      </div>
+<h2>Our Story</h2>
+<p>Founded in 2018, Acme Co. started with a single vision: to simplify digital operations...</p>
 
-      <div style="margin-top:12px;display:flex;justify-content:space-between;align-items:center;gap:12px">
-        <div class="small">Preview — click text to edit directly if you like, then copy or download.</div>
-        <div style="display:flex;gap:8px">
-          <button class="btn btn-ghost" id="editBtn">Edit</button>
-          <button class="btn btn-primary" id="finalizeBtn">Finalize</button>
-        </div>
-      </div>
+<h2>Our Mission</h2>
+<p>At Acme Co., our mission is to deliver...</p>
 
-    </div>
-  </div>
+<h2>Our Core Values</h2>
+<p>Innovation, reliability, and inclusion...</p>
 
-  <script>
-    // Tiny generator logic — offline, deterministic, editable
-    function pick(list){return list[Math.floor(Math.random()*list.length)]}
+<h2>Who We Serve</h2>
+<p>We proudly support businesses...</p>
 
-    const tones = {
-      "Professional":{
-        opener:["Founded to deliver exceptional results", "We build reliable solutions"],
-        voice:"clear, confident and authoritative",
-      },
-      "Friendly":{
-        opener:["We love helping people", "Hi — we're a small team who cares"],
-        voice:"warm, approachable and human",
-      },
-      "Playful":{
-        opener:["Think bold, think curious", "We make work a little more fun"],
-        voice:"light-hearted and quirky",
-      },
-      "Inspirational":{
-        opener:["Driven by a vision to change the world", "We aim to inspire better futures"],
-        voice:"uplifting and visionary",
-      },
-      "Minimal":{
-        opener:["We make simple products that work", "Less is more"],
-        voice:"clean, concise and humble",
-      },
-      "Bold":{
-        opener:["We challenge the status quo", "We move fast and break molds"],
-        voice:"direct, confident and energetic",
-      }
-    }
+<h2>Why Choose Us</h2>
+<p>Acme Co. isn’t just about software...</p>
 
-    const templates = {
-      classic: function(ctx){
-        return `${ctx.title}\n\n${ctx.mission}\n\n${ctx.what}\n\n${ctx.values}\n\n${ctx.cta}`
-      },
-      story: function(ctx){
-        return `${ctx.title}\n\nIt started when ${ctx.founderStory}\n\nSince then, ${ctx.progress}\n\n${ctx.cta}`
-      },
-      tech: function(ctx){
-        return `${ctx.title}\n\n${ctx.mission}\n\nWhat we build: ${ctx.products}\n\nHow we work: ${ctx.process}\n\n${ctx.cta}`
-      },
-      impact: function(ctx){
-        return `${ctx.title}\n\nOur impact: ${ctx.impact}\n\nHow we measure it: ${ctx.metrics}\n\n${ctx.cta}`
-      }
-    }
+<meta name="description" content="Learn more about Acme Co., a cloud software leader helping small and mid-sized teams succeed with innovative, reliable solutions." />
 
-    // helpers
-    function sanitize(s){return (s||"").trim()}
-
-    // DOM
-    const companyEl = document.getElementById('company')
-    const industryEl = document.getElementById('industry')
-    const missionEl = document.getElementById('mission')
-    const toneGrid = document.getElementById('toneGrid')
-    const lengthRange = document.getElementById('lengthRange')
-    const lengthLabel = document.getElementById('lengthLabel')
-    const templatesEl = document.getElementById('templates')
-    const keywordsEl = document.getElementById('keywords')
-    const previewTitle = document.getElementById('previewTitle')
-    const previewBody = document.getElementById('previewBody')
-    const metaTone = document.getElementById('metaTone')
-    const metaLength = document.getElementById('metaLength')
-    const metaTemplate = document.getElementById('metaTemplate')
-    const brandMark = document.getElementById('brandMark')
-    const brandName = document.getElementById('brandName')
-    const brandIndustry = document.getElementById('brandIndustry')
-
-    // state
-    let selectedTone = 'Professional'
-    let selectedTemplate = 'classic'
-
-    // tone selection
-    toneGrid.querySelectorAll('.tone-item').forEach(el=>{
-      el.addEventListener('click', ()=>{
-        toneGrid.querySelectorAll('.tone-item').forEach(x=>x.classList.remove('active'))
-        el.classList.add('active')
-        selectedTone = el.dataset.tone
-      })
-    })
-
-    // template selection
-    templatesEl.querySelectorAll('.template-card').forEach(el=>{
-      el.addEventListener('click', ()=>{
-        templatesEl.querySelectorAll('.template-card').forEach(x=>x.style.borderColor='rgba(255,255,255,0.02)')
-        el.style.borderColor='rgba(124,58,237,0.6)'
-        selectedTemplate = el.dataset.template
-        metaTemplate.textContent = 'Template: ' + el.textContent.split('—')[0].trim()
-      })
-    })
-
-    // length label
-    function updateLengthLabel(){
-      const v = Number(lengthRange.value)
-      const map = {1:'XS',2:'Short',3:'Medium',4:'Long',5:'XL'}
-      lengthLabel.textContent = map[v]
-      metaLength.textContent = 'Length: ' + map[v]
-    }
-    lengthRange.addEventListener('input', updateLengthLabel)
-    updateLengthLabel()
-
-    // live brand preview
-    companyEl.addEventListener('input', ()=>{
-      const name = companyEl.value||'Acme Solutions'
-      brandName.textContent = name
-      brandMark.textContent = name.split(' ').map(s=>s[0]||'').slice(0,2).join('').toUpperCase()
-    })
-    industryEl.addEventListener('change', ()=>{brandIndustry.textContent = industryEl.value})
-
-    // generate logic
-    function generate(){
-      const company = sanitize(companyEl.value) || 'Your Company'
-      const industry = sanitize(industryEl.value) || 'Company'
-      const missionInput = sanitize(missionEl.value)
-      const keywords = sanitize(keywordsEl.value).split(',').map(s=>s.trim()).filter(Boolean)
-      const tone = selectedTone || 'Professional'
-      const length = Number(lengthRange.value)
-      const template = selectedTemplate || 'classic'
-
-      const ctx = {}
-      ctx.title = `About ${company}`
-      ctx.mission = missionInput || pick(tones[tone].opener) + ` — ${company} is a ${industry.toLowerCase()} company focused on ${keywords.slice(0,3).join(', ') || 'delivering value to customers'}.`
-
-      ctx.what = `${company} creates products and services that solve real problems for customers, with a strong focus on quality and long-term partnerships.`
-      ctx.values = `Our values: ${keywords.length? keywords.join(', '): 'Integrity, Excellence, Customer-first'}.`
-      ctx.cta = `Want to learn more? Visit our website or get in touch — we’d love to hear from you.`
-
-      // story
-      ctx.founderStory = `${company} began as a small idea to make ${industry.toLowerCase()} better.`
-      ctx.progress = `Over the years we've expanded our services, grown the team, and helped dozens of clients succeed.`
-
-      // tech
-      ctx.products = `Software products, integrations and tailored solutions designed to scale.`
-      ctx.process = `We use user-centered design, agile development, and data-driven decisions.`
-
-      // impact
-      ctx.impact = `We focus on sustainable growth, community engagement, and measurable outcomes.`
-      ctx.metrics = `KPIs include customer retention, carbon reduction goals and impact hours donated.`
-
-      // modify based on length
-      if(length<=2){
-        // short
-        ctx.values = ctx.values.split('.').slice(0,1).join('.') + '.'
-        ctx.what = ctx.what.split('.').slice(0,1).join('.') + '.'
-        ctx.cta = `Learn more.`
-      } else if(length>=4){
-        // long
-        ctx.mission += ` We combine deep domain expertise with cutting-edge technology to deliver measurable outcomes for our partners.`
-        ctx.values += ` We hire for curiosity, kindness, and craftsmanship; we measure success by customer impact.`
-        ctx.what += ` Our offerings include consulting, custom development, and managed services.`
-        ctx.cta = `Get in touch to explore how we can help your organization grow.`
-      }
-
-      // tone tweaks
-      if(tone==='Friendly'){
-        ctx.mission = ctx.mission.replace(' — ',' — We care about people and results. ')
-        ctx.cta = "Drop us a line — we'd love to chat!"
-      }
-      if(tone==='Playful'){
-        ctx.mission = ctx.mission + ' We like to have fun while solving hard problems.'
-        ctx.cta = "Ready to make something awesome together? Let's go."
-      }
-      if(tone==='Minimal'){
-        // shorter, less punctuation
-        ctx.mission = ctx.mission.split('.')[0] + '.'
-        ctx.values = ctx.values.split(',').slice(0,3).join(', ') + '.'
-      }
-      if(tone==='Bold'){
-        ctx.mission = ctx.mission.toUpperCase()
-      }
-
-      // build
-      const assembled = (templates[template]||templates.classic)(ctx)
-
-      // render nicely to preview
-      const parts = assembled.split('\n\n')
-      previewTitle.textContent = parts[0]||ctx.title
-      previewBody.innerHTML = ''
-      for(let i=1;i<parts.length;i++){
-        const p = document.createElement('p')
-        p.textContent = parts[i]
-        previewBody.appendChild(p)
-      }
-
-      metaTone.textContent = 'Tone: ' + tone
-      metaLength.textContent = 'Length: ' + lengthLabel.textContent
-      metaTemplate.textContent = 'Template: ' + (selectedTemplate||'classic')
-
-      // auto select for easy copy
-      selectNodeContent(document.getElementById('preview'))
-    }
-
-    function selectNodeContent(el) {
-      const range = document.createRange();
-      range.selectNodeContents(el);
-      const sel = window.getSelection();
-      sel.removeAllRanges();
-      sel.addRange(range);
-    }
-
-    // Buttons
-    document.getElementById('generateBtn').addEventListener('click', ()=>{
-      generate()
-    })
-    document.getElementById('surpriseBtn').addEventListener('click', ()=>{
-      // randomize a few fields
-      companyEl.value = pick(['Nova Labs','BrightPath','Horizon Studio','Lumen Works','Acme Solutions'])
-      industryEl.value = pick(['Technology','Creative Agency','Healthcare','Finance'])
-      missionEl.value = ''
-      keywordsEl.value = pick(['innovation, customer-first','sustainability, impact','trusted, secure'])
-      // random tone
-      const tonesEls = Array.from(toneGrid.querySelectorAll('.tone-item'))
-      tonesEls.forEach(x=>x.classList.remove('active'))
-      const chosen = pick(tonesEls)
-      chosen.classList.add('active')
-      selectedTone = chosen.dataset.tone
-      generate()
-    })
-
-    document.getElementById('presetBtn').addEventListener('click', ()=>{
-      companyEl.value = 'EcoSphere'
-      industryEl.value = 'Nonprofit'
-      missionEl.value = 'Empower communities to build sustainable futures.'
-      keywordsEl.value = 'sustainability, community, education'
-      // tone
-      toneGrid.querySelectorAll('.tone-item').forEach(x=>x.classList.remove('active'))
-      toneGrid.querySelectorAll('.tone-item')[3].classList.add('active')
-      selectedTone='Inspirational'
-      selectedTemplate='impact'
-      templatesEl.querySelectorAll('.template-card').forEach(x=>x.style.borderColor='rgba(255,255,255,0.02)')
-      templatesEl.querySelectorAll('.template-card')[3].style.borderColor='rgba(124,58,237,0.6)'
-      generate()
-    })
-
-    // Copy / Download
-    document.getElementById('copyBtn').addEventListener('click', async ()=>{
-      const html = document.getElementById('preview').innerText
-      try{
-        await navigator.clipboard.writeText(html)
-        document.getElementById('copyBtn').textContent='Copied'
-        setTimeout(()=>document.getElementById('copyBtn').textContent='Copy',1200)
-      }catch(e){
-        alert('Copy failed — your browser may restrict clipboard access. Select and copy manually.')
-      }
-    })
-
-    document.getElementById('downloadBtn').addEventListener('click', ()=>{
-      const txt = document.getElementById('preview').innerText
-      const blob = new Blob([txt], {type:'text/plain;charset=utf-8'})
-      const url = URL.createObjectURL(blob)
-      const a = document.createElement('a')
-      a.href = url; a.download = (companyEl.value||'about') + '-about.txt'
-      document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url)
-    })
-
-    // edit / finalize
-    const editBtn = document.getElementById('editBtn')
-    const preview = document.getElementById('preview')
-    editBtn.addEventListener('click', ()=>{
-      const editable = preview.getAttribute('contenteditable') === 'true'
-      preview.setAttribute('contenteditable', editable? 'false' : 'true')
-      editBtn.textContent = editable? 'Edit' : 'Done'
-      if(!editable) preview.focus()
-    })
-
-    document.getElementById('finalizeBtn').addEventListener('click', ()=>{
-      // simple finalize — copy back to clipboard and show a tiny animation
-      const html = preview.innerText
-      navigator.clipboard.writeText(html).then(()=>{
-        document.getElementById('finalizeBtn').textContent='Finalized & Copied'
-        setTimeout(()=>document.getElementById('finalizeBtn').textContent='Finalize',1300)
-      }).catch(()=>{
-        alert('Could not copy automatically — select the preview text and copy.')
-      })
-    })
-
-    // init default
-    generate()
-  </script>
-</body>
-</html>
