@@ -1,517 +1,156 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta name="google-site-verification" content="Yt4jm3IhT7kzza5o-XsANScLfyrpy2JxLUIRkzEq_-M" />
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>About Us Generator — Premium</title>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <title>Portfolio — Jenish-style Theme</title>
+  <meta name="description" content="A clean, responsive portfolio theme inspired by jenishpatel14.github.io" />
   <style>
-    :root{
-      --bg:#0f1724;
-      --card:#0b1624;
-      --muted:#98a0b3;
-      --accent1:#7c3aed;
-      --accent2:#06b6d4;
-      --glass: rgba(255,255,255,0.04);
-      --radius:16px;
-    }
+    :root{--bg:#0f1724;--card:#0b1220;--muted:#94a3b8;--accent:#7c3aed;--glass: rgba(255,255,255,0.03)}
     *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
-      background: radial-gradient(1200px 600px at 10% 20%, rgba(124,58,237,0.08), transparent),
-                  radial-gradient(1000px 500px at 90% 80%, rgba(6,182,212,0.06), transparent),
-                  var(--bg);
-      color:#e6eef8;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      padding:48px;
-    }
-    .container{
-      max-width:1100px;
-      margin:0 auto;
-      display:grid;
-      grid-template-columns: 420px 1fr;
-      gap:28px;
-      align-items:start;
-    }
-    .panel{
-      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      border-radius:var(--radius);
-      padding:22px;
-      box-shadow: 0 6px 30px rgba(2,6,23,0.6), inset 0 1px 0 rgba(255,255,255,0.02);
-      border: 1px solid rgba(255,255,255,0.03);
-    }
-    header.site-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
-    .logo{
-      display:flex;gap:12px;align-items:center
-    }
-    .logo .mark{
-      width:44px;height:44px;border-radius:12px;
-      background:linear-gradient(135deg,var(--accent1),var(--accent2));
-      display:flex;align-items:center;justify-content:center;font-weight:800;color:white;box-shadow:0 6px 18px rgba(12,10,20,0.6);
-    }
-    .title{font-weight:700;font-size:18px}
-    .subtitle{color:var(--muted);font-size:13px}
+    body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,'Helvetica Neue',Arial; background:linear-gradient(180deg,#071028 0%, #08122a 60%);color:#e6eef8;line-height:1.45}
+    .wrap{max-width:1000px;margin:36px auto;padding:28px;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);border-radius:14px;box-shadow:0 10px 30px rgba(2,6,23,0.6)}
+    header{display:flex;gap:16px;align-items:center;justify-content:space-between}
+    .brand{display:flex;gap:12px;align-items:center}
+    .avatar{width:56px;height:56px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#4f46e5);display:flex;align-items:center;justify-content:center;font-weight:700;color:white}
+    h1{margin:0;font-size:28px}
+    .subtitle{color:var(--muted);margin-top:6px}
+    nav{display:flex;gap:12px}
+    .menu{background:transparent;border:1px solid rgba(255,255,255,0.04);padding:8px 12px;border-radius:10px;color:var(--muted);cursor:pointer}
 
-    label{display:block;font-size:13px;margin-bottom:6px;color:var(--muted)}
-    input[type="text"], select, textarea{
-      width:100%;padding:10px 12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit;font-size:14px;outline:none
-    }
-    textarea{min-height:90px;resize:vertical}
-    .row{display:flex;gap:12px}
+    .grid{display:grid;grid-template-columns:1fr 320px;gap:22px;margin-top:22px}
+    .card{background:var(--card);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.02)}
 
-    .option-block{margin-bottom:14px}
-    .small{font-size:12px;color:var(--muted)}
+    .hero{padding:18px}
+    .hero p{margin:10px 0;color:var(--muted)}
 
-    .controls{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
-    .btn{display:inline-flex;gap:10px;align-items:center;cursor:pointer;border:0;padding:10px 14px;border-radius:10px;font-weight:600}
-    .btn-primary{background:linear-gradient(90deg,var(--accent1),var(--accent2));color:white;box-shadow: 0 8px 30px rgba(7,8,20,0.6);}
-    .btn-ghost{background:var(--glass);color:var(--muted);border:1px solid rgba(255,255,255,0.03)}
-    .btn-white{background:white;color:var(--bg);font-weight:700}
+    .tools{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:12px}
+    .tool{background:var(--glass);padding:10px;border-radius:8px;font-weight:600;color:#e6eef8;text-decoration:none;display:inline-block}
 
-    .preview{
-      padding:22px;border-radius:12px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);min-height:360px;position:relative;border:1px solid rgba(255,255,255,0.02)
-    }
-    .preview h2{margin:0 0 10px 0;font-size:22px}
-    .preview p{margin:0 0 12px 0;color:var(--muted);line-height:1.5}
+    .skills{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+    .skill{padding:6px 10px;border-radius:999px;background:rgba(255,255,255,0.03);color:var(--muted);font-weight:600}
 
-    .meta{display:flex;gap:12px;align-items:center;margin-top:12px}
-    .pill{background:rgba(255,255,255,0.03);padding:6px 10px;border-radius:999px;font-size:12px;color:var(--muted)}
+    aside .card h3{margin:0 0 8px 0}
+    .right-col{position:sticky;top:28px}
 
-    footer.foot{margin-top:18px;font-size:12px;color:var(--muted);display:flex;justify-content:space-between;align-items:center}
+    footer{margin-top:22px;color:var(--muted);font-size:13px;text-align:center}
 
     /* responsive */
-    @media (max-width:980px){
-      .container{grid-template-columns:1fr; padding:0 10px}
-    }
+    @media (max-width:880px){.grid{grid-template-columns:1fr} .right-col{position:static}}
 
-    /* little animations */
-    .fade-in{animation:fadeIn .5s ease both}
-    @keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
-
-    .controls .btn svg{width:16px;height:16px}
-
-    .tone-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
-    .tone-item{padding:8px;border-radius:10px;text-align:center;cursor:pointer;border:1px solid rgba(255,255,255,0.02)}
-    .tone-item.active{box-shadow:0 6px 18px rgba(12,10,20,0.6);border:1px solid rgba(255,255,255,0.06);background:linear-gradient(90deg, rgba(124,58,237,0.08), rgba(6,182,212,0.04));}
-
-    .length-slider{display:flex;align-items:center;gap:10px}
-    input[type=range]{width:100%}
-
-    .template-list{display:flex;flex-direction:column;gap:8px}
-    .template-card{padding:10px;border-radius:10px;background:rgba(255,255,255,0.02);cursor:pointer}
-
-    .brand-preview{display:flex;gap:12px;align-items:center}
-    .brand-logo{width:56px;height:56px;border-radius:10px;background:linear-gradient(135deg,var(--accent1),var(--accent2));display:flex;align-items:center;justify-content:center;font-weight:800}
+    /* simple hamburger behaviour */
+    .mobile-nav{display:none}
+    @media (max-width:640px){nav{display:none}.mobile-nav{display:block}}
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="panel fade-in" aria-hidden="false">
-      <header class="site-header">
-        <div class="logo">
-          <div class="mark">AU</div>
-          <div>
-            <div class="title">About Us — Generator</div>
-            <div class="subtitle">Craft premium "About Us" sections in seconds</div>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="avatar">JP</div>
+        <div>
+          <h1>Hi, I'm Jenish Patel</h1>
+          <div class="subtitle">Seasoned web developer — HTML · CSS · JavaScript</div>
+        </div>
+      </div>
+      <div>
+        <nav>
+          <a class="menu" href="#home">Home</a>
+          <a class="menu" href="#about">About Us</a>
+          <a class="menu" href="#contact">Contact</a>
+        </nav>
+        <button class="menu mobile-nav" onclick="toggleMenu()">☰</button>
+      </div>
+    </header>
+
+    <main class="grid">
+      <section>
+        <article class="card hero" id="home">
+          <h2 style="margin-top:0">A Passionate</h2>
+          <p>"Seasoned web developer specializing in clean code and user-focused design. Proficient in HTML, CSS, and JavaScript, committed to delivering top-notch, responsive websites."</p>
+
+          <div class="card" style="margin-top:12px">
+            <h3 style="margin:0 0 8px 0">Tools</h3>
+            <div class="tools">
+              <a class="tool" href="#">BGMI Name Style</a>
+              <a class="tool" href="#">PUBG Name Generator</a>
+              <a class="tool" href="#">TNPSC Photo Compressor</a>
+              <a class="tool" href="#">TNPSC Signature Compressor</a>
+              <a class="tool" href="#">Stock Average Calculator</a>
+              <a class="tool" href="#">CGPA To GPA</a>
+              <a class="tool" href="#">Fake Tweet Generator</a>
+              <a class="tool" href="#">2048 Game</a>
+            </div>
           </div>
-        </div>
-        <div class="small">v1.0 • Offline • No libraries</div>
-      </header>
 
-      <div class="option-block">
-        <label for="company">Company / Brand name</label>
-        <input id="company" type="text" placeholder="Acme Solutions" value="Acme Solutions" />
-      </div>
-
-      <div class="option-block">
-        <label for="industry">Industry</label>
-        <select id="industry">
-          <option>Technology</option>
-          <option>Healthcare</option>
-          <option>Finance</option>
-          <option>Education</option>
-          <option>Retail</option>
-          <option>Consulting</option>
-          <option>Nonprofit</option>
-          <option>Creative Agency</option>
-        </select>
-      </div>
-
-      <div class="option-block">
-        <label for="mission">One-line mission (optional)</label>
-        <input id="mission" type="text" placeholder="Making complex things simple" />
-        <div class="small">Leave empty to auto-generate a mission from the other inputs.</div>
-      </div>
-
-      <div class="option-block">
-        <label>Company tone</label>
-        <div class="tone-grid" id="toneGrid">
-          <div class="tone-item active" data-tone="Professional">Professional</div>
-          <div class="tone-item" data-tone="Friendly">Friendly</div>
-          <div class="tone-item" data-tone="Playful">Playful</div>
-          <div class="tone-item" data-tone="Inspirational">Inspirational</div>
-          <div class="tone-item" data-tone="Minimal">Minimal</div>
-          <div class="tone-item" data-tone="Bold">Bold</div>
-        </div>
-      </div>
-
-      <div class="option-block">
-        <label>Length</label>
-        <div class="length-slider">
-          <input id="lengthRange" type="range" min="1" max="5" value="3" />
-          <div class="pill" id="lengthLabel">Medium</div>
-        </div>
-      </div>
-
-      <div class="option-block">
-        <label>Template (quick picks)</label>
-        <div class="template-list" id="templates">
-          <div class="template-card" data-template="classic">Classic — mission, values, CTA</div>
-          <div class="template-card" data-template="story">Founder's Story — origin, growth</div>
-          <div class="template-card" data-template="tech">Product-first — what & how</div>
-          <div class="template-card" data-template="impact">Impact — social & sustainability</div>
-        </div>
-      </div>
-
-      <div class="controls" style="margin-top:18px">
-        <button class="btn btn-primary" id="generateBtn">
-          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          Generate
-        </button>
-        <button class="btn btn-ghost" id="surpriseBtn">Surprise me</button>
-        <button class="btn btn-ghost" id="presetBtn">Load Preset</button>
-      </div>
-
-      <div style="margin-top:16px">
-        <label for="keywords">Keywords / Phrases (comma separated)</label>
-        <input id="keywords" placeholder="innovation, customer-first, sustainable" />
-      </div>
-
-      <footer class="foot">
-        <div class="small">Pro tips: use crisp verbs. Keep 2–3 unique selling points.</div>
-        <div class="small">Export: Copy or Download after generating.</div>
-      </footer>
-    </div>
-
-    <div class="panel fade-in">
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
-        <div class="brand-preview">
-          <div class="brand-logo" id="brandMark">AS</div>
-          <div>
-            <div id="brandName" style="font-weight:700;font-size:16px">Acme Solutions</div>
-            <div class="small" id="brandIndustry">Technology</div>
+          <div class="card" style="margin-top:12px">
+            <h3 style="margin:0 0 8px 0">Skills & Expertise</h3>
+            <div class="skills">
+              <span class="skill">HTML</span>
+              <span class="skill">CSS</span>
+              <span class="skill">JavaScript</span>
+              <span class="skill">Git</span>
+              <span class="skill">GitHub</span>
+              <span class="skill">Photoshop</span>
+            </div>
           </div>
-        </div>
-        <div style="display:flex;gap:8px">
-          <button class="btn btn-ghost" id="copyBtn" title="Copy output">Copy</button>
-          <button class="btn btn-white" id="downloadBtn" title="Download as txt">Download</button>
-        </div>
-      </div>
 
-      <div class="preview" id="preview" contenteditable="false" aria-live="polite">
-        <h2 id="previewTitle">About Acme Solutions</h2>
-        <p id="previewBody">Generate a premium About Us section using the panel on the left. Choose tone, length and template — then click <strong>Generate</strong>.</p>
-        <div class="meta" aria-hidden="true">
-          <div class="pill" id="metaTone">Tone: Professional</div>
-          <div class="pill" id="metaLength">Length: Medium</div>
-          <div class="pill" id="metaTemplate">Template: Classic</div>
-        </div>
-      </div>
+          <div class="card" style="margin-top:12px">
+            <h3 style="margin:0 0 8px 0">About Me</h3>
+            <p style="margin:0;color:var(--muted)">Hi! I’m Jenish Patel, a passionate developer with a knack for building web applications. With experience in both front-end and back-end technologies, I strive to create seamless user experiences and efficient solutions.</p>
+          </div>
 
-      <div style="margin-top:12px;display:flex;justify-content:space-between;align-items:center;gap:12px">
-        <div class="small">Preview — click text to edit directly if you like, then copy or download.</div>
-        <div style="display:flex;gap:8px">
-          <button class="btn btn-ghost" id="editBtn">Edit</button>
-          <button class="btn btn-primary" id="finalizeBtn">Finalize</button>
-        </div>
-      </div>
+        </article>
 
-    </div>
+        <article class="card" id="projects" style="margin-top:12px">
+          <h3 style="margin-top:0">Projects</h3>
+          <ul style="margin:8px 0 0 16px;color:var(--muted)">
+            <li>Personal Portfolio Website</li>
+            <li>Task Management App</li>
+            <li>Weather Forecast Dashboard</li>
+          </ul>
+        </article>
+
+        <article class="card" id="education" style="margin-top:12px">
+          <h3 style="margin-top:0">Education</h3>
+          <ul style="margin:8px 0 0 16px;color:var(--muted)">
+            <li>Diploma in Computer Engineering — Vallabh Budhi Polytechnic</li>
+            <li>B.E. Computer Engineering — MGITERC, Navsari</li>
+          </ul>
+        </article>
+
+      </section>
+
+      <aside class="right-col">
+        <div class="card">
+          <h3>Contact</h3>
+          <p style="color:var(--muted);margin:0 0 8px 0">Get in touch for freelance work or collaborations.</p>
+          <p style="margin:6px 0 0 0">Email: <a href="mailto:hello@example.com">hello@example.com</a></p>
+        </div>
+
+        <div class="card" style="margin-top:12px">
+          <h3>Experience</h3>
+          <p style="color:var(--muted);margin:0">Internship — CodSoft, Summer 2024</p>
+        </div>
+
+        <div class="card" style="margin-top:12px">
+          <h3>Footer</h3>
+          <p style="color:var(--muted);margin:0">© 2025 Jenish Patel</p>
+        </div>
+      </aside>
+    </main>
+
+    <footer>
+      <small>Built with ❤️ — Theme inspired by <em>jenishpatel14.github.io</em></small>
+    </footer>
   </div>
 
   <script>
-    // Tiny generator logic — offline, deterministic, editable
-    function pick(list){return list[Math.floor(Math.random()*list.length)]}
-
-    const tones = {
-      "Professional":{
-        opener:["Founded to deliver exceptional results", "We build reliable solutions"],
-        voice:"clear, confident and authoritative",
-      },
-      "Friendly":{
-        opener:["We love helping people", "Hi — we're a small team who cares"],
-        voice:"warm, approachable and human",
-      },
-      "Playful":{
-        opener:["Think bold, think curious", "We make work a little more fun"],
-        voice:"light-hearted and quirky",
-      },
-      "Inspirational":{
-        opener:["Driven by a vision to change the world", "We aim to inspire better futures"],
-        voice:"uplifting and visionary",
-      },
-      "Minimal":{
-        opener:["We make simple products that work", "Less is more"],
-        voice:"clean, concise and humble",
-      },
-      "Bold":{
-        opener:["We challenge the status quo", "We move fast and break molds"],
-        voice:"direct, confident and energetic",
-      }
+    function toggleMenu(){
+      const nav = document.querySelector('nav');
+      if(!nav) return;
+      if(nav.style.display==='flex') nav.style.display='none'; else nav.style.display='flex';
     }
-
-    const templates = {
-      classic: function(ctx){
-        return `${ctx.title}\n\n${ctx.mission}\n\n${ctx.what}\n\n${ctx.values}\n\n${ctx.cta}`
-      },
-      story: function(ctx){
-        return `${ctx.title}\n\nIt started when ${ctx.founderStory}\n\nSince then, ${ctx.progress}\n\n${ctx.cta}`
-      },
-      tech: function(ctx){
-        return `${ctx.title}\n\n${ctx.mission}\n\nWhat we build: ${ctx.products}\n\nHow we work: ${ctx.process}\n\n${ctx.cta}`
-      },
-      impact: function(ctx){
-        return `${ctx.title}\n\nOur impact: ${ctx.impact}\n\nHow we measure it: ${ctx.metrics}\n\n${ctx.cta}`
-      }
-    }
-
-    // helpers
-    function sanitize(s){return (s||"").trim()}
-
-    // DOM
-    const companyEl = document.getElementById('company')
-    const industryEl = document.getElementById('industry')
-    const missionEl = document.getElementById('mission')
-    const toneGrid = document.getElementById('toneGrid')
-    const lengthRange = document.getElementById('lengthRange')
-    const lengthLabel = document.getElementById('lengthLabel')
-    const templatesEl = document.getElementById('templates')
-    const keywordsEl = document.getElementById('keywords')
-    const previewTitle = document.getElementById('previewTitle')
-    const previewBody = document.getElementById('previewBody')
-    const metaTone = document.getElementById('metaTone')
-    const metaLength = document.getElementById('metaLength')
-    const metaTemplate = document.getElementById('metaTemplate')
-    const brandMark = document.getElementById('brandMark')
-    const brandName = document.getElementById('brandName')
-    const brandIndustry = document.getElementById('brandIndustry')
-
-    // state
-    let selectedTone = 'Professional'
-    let selectedTemplate = 'classic'
-
-    // tone selection
-    toneGrid.querySelectorAll('.tone-item').forEach(el=>{
-      el.addEventListener('click', ()=>{
-        toneGrid.querySelectorAll('.tone-item').forEach(x=>x.classList.remove('active'))
-        el.classList.add('active')
-        selectedTone = el.dataset.tone
-      })
-    })
-
-    // template selection
-    templatesEl.querySelectorAll('.template-card').forEach(el=>{
-      el.addEventListener('click', ()=>{
-        templatesEl.querySelectorAll('.template-card').forEach(x=>x.style.borderColor='rgba(255,255,255,0.02)')
-        el.style.borderColor='rgba(124,58,237,0.6)'
-        selectedTemplate = el.dataset.template
-        metaTemplate.textContent = 'Template: ' + el.textContent.split('—')[0].trim()
-      })
-    })
-
-    // length label
-    function updateLengthLabel(){
-      const v = Number(lengthRange.value)
-      const map = {1:'XS',2:'Short',3:'Medium',4:'Long',5:'XL'}
-      lengthLabel.textContent = map[v]
-      metaLength.textContent = 'Length: ' + map[v]
-    }
-    lengthRange.addEventListener('input', updateLengthLabel)
-    updateLengthLabel()
-
-    // live brand preview
-    companyEl.addEventListener('input', ()=>{
-      const name = companyEl.value||'Acme Solutions'
-      brandName.textContent = name
-      brandMark.textContent = name.split(' ').map(s=>s[0]||'').slice(0,2).join('').toUpperCase()
-    })
-    industryEl.addEventListener('change', ()=>{brandIndustry.textContent = industryEl.value})
-
-    // generate logic
-    function generate(){
-      const company = sanitize(companyEl.value) || 'Your Company'
-      const industry = sanitize(industryEl.value) || 'Company'
-      const missionInput = sanitize(missionEl.value)
-      const keywords = sanitize(keywordsEl.value).split(',').map(s=>s.trim()).filter(Boolean)
-      const tone = selectedTone || 'Professional'
-      const length = Number(lengthRange.value)
-      const template = selectedTemplate || 'classic'
-
-      const ctx = {}
-      ctx.title = `About ${company}`
-      ctx.mission = missionInput || pick(tones[tone].opener) + ` — ${company} is a ${industry.toLowerCase()} company focused on ${keywords.slice(0,3).join(', ') || 'delivering value to customers'}.`
-
-      ctx.what = `${company} creates products and services that solve real problems for customers, with a strong focus on quality and long-term partnerships.`
-      ctx.values = `Our values: ${keywords.length? keywords.join(', '): 'Integrity, Excellence, Customer-first'}.`
-      ctx.cta = `Want to learn more? Visit our website or get in touch — we’d love to hear from you.`
-
-      // story
-      ctx.founderStory = `${company} began as a small idea to make ${industry.toLowerCase()} better.`
-      ctx.progress = `Over the years we've expanded our services, grown the team, and helped dozens of clients succeed.`
-
-      // tech
-      ctx.products = `Software products, integrations and tailored solutions designed to scale.`
-      ctx.process = `We use user-centered design, agile development, and data-driven decisions.`
-
-      // impact
-      ctx.impact = `We focus on sustainable growth, community engagement, and measurable outcomes.`
-      ctx.metrics = `KPIs include customer retention, carbon reduction goals and impact hours donated.`
-
-      // modify based on length
-      if(length<=2){
-        // short
-        ctx.values = ctx.values.split('.').slice(0,1).join('.') + '.'
-        ctx.what = ctx.what.split('.').slice(0,1).join('.') + '.'
-        ctx.cta = `Learn more.`
-      } else if(length>=4){
-        // long
-        ctx.mission += ` We combine deep domain expertise with cutting-edge technology to deliver measurable outcomes for our partners.`
-        ctx.values += ` We hire for curiosity, kindness, and craftsmanship; we measure success by customer impact.`
-        ctx.what += ` Our offerings include consulting, custom development, and managed services.`
-        ctx.cta = `Get in touch to explore how we can help your organization grow.`
-      }
-
-      // tone tweaks
-      if(tone==='Friendly'){
-        ctx.mission = ctx.mission.replace(' — ',' — We care about people and results. ')
-        ctx.cta = "Drop us a line — we'd love to chat!"
-      }
-      if(tone==='Playful'){
-        ctx.mission = ctx.mission + ' We like to have fun while solving hard problems.'
-        ctx.cta = "Ready to make something awesome together? Let's go."
-      }
-      if(tone==='Minimal'){
-        // shorter, less punctuation
-        ctx.mission = ctx.mission.split('.')[0] + '.'
-        ctx.values = ctx.values.split(',').slice(0,3).join(', ') + '.'
-      }
-      if(tone==='Bold'){
-        ctx.mission = ctx.mission.toUpperCase()
-      }
-
-      // build
-      const assembled = (templates[template]||templates.classic)(ctx)
-
-      // render nicely to preview
-      const parts = assembled.split('\n\n')
-      previewTitle.textContent = parts[0]||ctx.title
-      previewBody.innerHTML = ''
-      for(let i=1;i<parts.length;i++){
-        const p = document.createElement('p')
-        p.textContent = parts[i]
-        previewBody.appendChild(p)
-      }
-
-      metaTone.textContent = 'Tone: ' + tone
-      metaLength.textContent = 'Length: ' + lengthLabel.textContent
-      metaTemplate.textContent = 'Template: ' + (selectedTemplate||'classic')
-
-      // auto select for easy copy
-      selectNodeContent(document.getElementById('preview'))
-    }
-
-    function selectNodeContent(el) {
-      const range = document.createRange();
-      range.selectNodeContents(el);
-      const sel = window.getSelection();
-      sel.removeAllRanges();
-      sel.addRange(range);
-    }
-
-    // Buttons
-    document.getElementById('generateBtn').addEventListener('click', ()=>{
-      generate()
-    })
-    document.getElementById('surpriseBtn').addEventListener('click', ()=>{
-      // randomize a few fields
-      companyEl.value = pick(['Nova Labs','BrightPath','Horizon Studio','Lumen Works','Acme Solutions'])
-      industryEl.value = pick(['Technology','Creative Agency','Healthcare','Finance'])
-      missionEl.value = ''
-      keywordsEl.value = pick(['innovation, customer-first','sustainability, impact','trusted, secure'])
-      // random tone
-      const tonesEls = Array.from(toneGrid.querySelectorAll('.tone-item'))
-      tonesEls.forEach(x=>x.classList.remove('active'))
-      const chosen = pick(tonesEls)
-      chosen.classList.add('active')
-      selectedTone = chosen.dataset.tone
-      generate()
-    })
-
-    document.getElementById('presetBtn').addEventListener('click', ()=>{
-      companyEl.value = 'EcoSphere'
-      industryEl.value = 'Nonprofit'
-      missionEl.value = 'Empower communities to build sustainable futures.'
-      keywordsEl.value = 'sustainability, community, education'
-      // tone
-      toneGrid.querySelectorAll('.tone-item').forEach(x=>x.classList.remove('active'))
-      toneGrid.querySelectorAll('.tone-item')[3].classList.add('active')
-      selectedTone='Inspirational'
-      selectedTemplate='impact'
-      templatesEl.querySelectorAll('.template-card').forEach(x=>x.style.borderColor='rgba(255,255,255,0.02)')
-      templatesEl.querySelectorAll('.template-card')[3].style.borderColor='rgba(124,58,237,0.6)'
-      generate()
-    })
-
-    // Copy / Download
-    document.getElementById('copyBtn').addEventListener('click', async ()=>{
-      const html = document.getElementById('preview').innerText
-      try{
-        await navigator.clipboard.writeText(html)
-        document.getElementById('copyBtn').textContent='Copied'
-        setTimeout(()=>document.getElementById('copyBtn').textContent='Copy',1200)
-      }catch(e){
-        alert('Copy failed — your browser may restrict clipboard access. Select and copy manually.')
-      }
-    })
-
-    document.getElementById('downloadBtn').addEventListener('click', ()=>{
-      const txt = document.getElementById('preview').innerText
-      const blob = new Blob([txt], {type:'text/plain;charset=utf-8'})
-      const url = URL.createObjectURL(blob)
-      const a = document.createElement('a')
-      a.href = url; a.download = (companyEl.value||'about') + '-about.txt'
-      document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url)
-    })
-
-    // edit / finalize
-    const editBtn = document.getElementById('editBtn')
-    const preview = document.getElementById('preview')
-    editBtn.addEventListener('click', ()=>{
-      const editable = preview.getAttribute('contenteditable') === 'true'
-      preview.setAttribute('contenteditable', editable? 'false' : 'true')
-      editBtn.textContent = editable? 'Edit' : 'Done'
-      if(!editable) preview.focus()
-    })
-
-    document.getElementById('finalizeBtn').addEventListener('click', ()=>{
-      // simple finalize — copy back to clipboard and show a tiny animation
-      const html = preview.innerText
-      navigator.clipboard.writeText(html).then(()=>{
-        document.getElementById('finalizeBtn').textContent='Finalized & Copied'
-        setTimeout(()=>document.getElementById('finalizeBtn').textContent='Finalize',1300)
-      }).catch(()=>{
-        alert('Could not copy automatically — select the preview text and copy.')
-      })
-    })
-
-    // init default
-    generate()
   </script>
 </body>
 </html>
-
