@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Aman8828 — BGMI Name Style</title>
+  <title>Aman8828 — BGMI Name Style Generator</title>
   <style>
     :root {
       --bg: #0f1724;
@@ -43,7 +43,7 @@
     }
     h2, h3 { margin-bottom: 10px; }
     p, li { color: var(--muted); margin: 6px 0; }
-    ul { margin-left: 20px; }
+    ul, ol { margin-left: 20px; }
     footer {
       margin-top: 22px;
       color: var(--muted);
@@ -51,15 +51,61 @@
       text-align: center;
     }
     a { color: var(--accent); text-decoration: none; }
+    input, button, select {
+      padding: 10px;
+      border-radius: 8px;
+      border: none;
+      margin: 6px 0;
+      font-size: 15px;
+    }
+    input, select {
+      width: 100%;
+      background: #111827;
+      color: #e6eef8;
+    }
+    button {
+      background: var(--accent);
+      color: #fff;
+      cursor: pointer;
+      font-weight: 600;
+      width: 100%;
+    }
+    .output {
+      margin-top: 12px;
+      padding: 12px;
+      background: var(--glass);
+      border-radius: 8px;
+      font-size: 18px;
+      font-weight: bold;
+      text-align: center;
+    }
   </style>
 </head>
 <body>
   <div class="wrap">
     <header>
-      <h1>BGMI Name Style: Create Stylish BGMI Names</h1>
-      <div class="subtitle">By Aman8828</div>
+      <h1>BGMI Name Style Generator</h1>
+      <div class="subtitle">Create Stylish BGMI Names — By Aman8828</div>
     </header>
 
+    <!-- Generator Tool -->
+    <article class="card">
+      <h2>Generate Your Stylish BGMI Name</h2>
+      <p>Enter your name or a keyword, and generate a stylish BGMI name instantly!</p>
+      <input type="text" id="nameInput" placeholder="Enter your name..." />
+      <select id="styleSelect">
+        <option value="★">Stars</option>
+        <option value="⚡">Lightning</option>
+        <option value="🔥">Fire</option>
+        <option value="💀">Skull</option>
+        <option value="👑">Crown</option>
+        <option value="✨">Sparkle</option>
+      </select>
+      <button onclick="generateName()">Generate Name</button>
+      <div class="output" id="output">Your stylish name will appear here.</div>
+    </article>
+
+    <!-- Article Section -->
     <article class="card">
       <h2>BGMI Name Style: How to Create a Unique Identity in BGMI</h2>
       <p>When you play Battlegrounds Mobile India (BGMI), your in-game name isn’t just a random tag—it’s a big part of who you are in the game. The right BGMI name style can help you stand out from the crowd, show off your gaming personality, and leave a lasting impression.</p>
@@ -68,7 +114,6 @@
 
     <article class="card">
       <h2>Why Your BGMI Name Style Matters</h2>
-      <p>A cool BGMI name is more than just something to call yourself—it’s part of your identity in the game. Here’s why your name really matters:</p>
       <ul>
         <li><strong>First Impressions:</strong> A unique and stylish name can make a strong first impression.</li>
         <li><strong>Personal Branding:</strong> Your BGMI name helps build your personal brand.</li>
@@ -134,5 +179,18 @@
       <small>© 2025 Aman8828 | Theme inspired by <a href="https://aman8828.github.io/">aman8828.github.io</a></small>
     </footer>
   </div>
+
+  <script>
+    function generateName(){
+      const name = document.getElementById('nameInput').value.trim();
+      const style = document.getElementById('styleSelect').value;
+      if(name === ""){
+        document.getElementById('output').innerText = "Please enter a name.";
+        return;
+      }
+      const stylishName = `${style} ${name} ${style}`;
+      document.getElementById('output').innerText = stylishName;
+    }
+  </script>
 </body>
-                                  </html>
+</html>
