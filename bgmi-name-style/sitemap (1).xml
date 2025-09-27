@@ -1,4 +1,10 @@
-User-agent: *
-Disallow: /search
-Allow: /
-Sitemap: https://aman8828.github.io/bgmi-name-style/sitemap.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <url>
+    <loc>https://aman8828.github.io/bgmi-name-style/</loc>
+    <lastmod>2025-09-27</lastmod>
+    <priority>1.0</priority>
+  </url>
+
+</urlset>
