@@ -1,62 +1,167 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Portfolio — Jenish-style Theme</title>
-  <meta name="description" content="A clean, responsive portfolio theme inspired by jenishpatel14.github.io" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aman8828 — Web Developer</title>
   <style>
-    :root{--bg:#0f1724;--card:#0b1220;--muted:#94a3b8;--accent:#7c3aed;--glass: rgba(255,255,255,0.03)}
-    *{box-sizing:border-box}
-    body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,'Helvetica Neue',Arial; background:linear-gradient(180deg,#071028 0%, #08122a 60%);color:#e6eef8;line-height:1.45}
-    .wrap{max-width:1000px;margin:36px auto;padding:28px;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);border-radius:14px;box-shadow:0 10px 30px rgba(2,6,23,0.6)}
-    header{display:flex;gap:16px;align-items:center;justify-content:space-between}
-    .brand{display:flex;gap:12px;align-items:center}
-    .avatar{width:56px;height:56px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#4f46e5);display:flex;align-items:center;justify-content:center;font-weight:700;color:white}
-    h1{margin:0;font-size:28px}
-    .subtitle{color:var(--muted);margin-top:6px}
-    nav{display:flex;gap:12px}
-    .menu{background:transparent;border:1px solid rgba(255,255,255,0.04);padding:8px 12px;border-radius:10px;color:var(--muted);cursor:pointer}
-
-    .grid{display:grid;grid-template-columns:1fr 320px;gap:22px;margin-top:22px}
-    .card{background:var(--card);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.02)}
-
-    .hero{padding:18px}
-    .hero p{margin:10px 0;color:var(--muted)}
-
-    .tools{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:12px}
-    .tool{background:var(--glass);padding:10px;border-radius:8px;font-weight:600;color:#e6eef8;text-decoration:none;display:inline-block}
-
-    .skills{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
-    .skill{padding:6px 10px;border-radius:999px;background:rgba(255,255,255,0.03);color:var(--muted);font-weight:600}
-
-    aside .card h3{margin:0 0 8px 0}
-    .right-col{position:sticky;top:28px}
-
-    footer{margin-top:22px;color:var(--muted);font-size:13px;text-align:center}
-
-    /* responsive */
-    @media (max-width:880px){.grid{grid-template-columns:1fr} .right-col{position:static}}
-
-    /* simple hamburger behaviour */
-    .mobile-nav{display:none}
-    @media (max-width:640px){nav{display:none}.mobile-nav{display:block}}
+    :root {
+      --bg: #0f1724;
+      --card: #0b1220;
+      --muted: #94a3b8;
+      --accent: #7c3aed;
+      --glass: rgba(255, 255, 255, 0.03);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: linear-gradient(180deg, #071028 0%, #08122a 60%);
+      color: #e6eef8;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      line-height: 1.45;
+      min-height: 100vh;
+    }
+    .wrap {
+      max-width: 1000px;
+      margin: 36px auto;
+      padding: 28px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+      border-radius: 14px;
+      box-shadow: 0 10px 30px rgba(2, 6, 23, 0.6);
+    }
+    header {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .brand {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+    .avatar {
+      width: 56px;
+      height: 56px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--accent), #4f46e5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: white;
+      font-size: 24px;
+    }
+    header h1 {
+      font-size: 28px;
+      margin: 0;
+    }
+    .subtitle {
+      color: var(--muted);
+      margin-top: 6px;
+      font-size: 14px;
+    }
+    nav {
+      display: flex;
+      gap: 12px;
+    }
+    nav a {
+      text-decoration: none;
+      color: #e6eef8;
+    }
+    .menu {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.04);
+      padding: 8px 12px;
+      border-radius: 10px;
+      color: var(--muted);
+      font-size: 14px;
+      cursor: pointer;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 22px;
+      margin-top: 22px;
+    }
+    .card {
+      background: var(--card);
+      padding: 18px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.02);
+    }
+    .hero p {
+      margin: 10px 0;
+      color: var(--muted);
+    }
+    .tools {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-top: 12px;
+    }
+    .tool {
+      background: var(--glass);
+      padding: 10px;
+      border-radius: 8px;
+      font-weight: 600;
+      color: #e6eef8;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 14px;
+    }
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+    .skill {
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.03);
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 14px;
+    }
+    aside .card h3 {
+      margin: 0 0 8px 0;
+      font-size: 18px;
+    }
+    .right-col {
+      position: sticky;
+      top: 28px;
+    }
+    footer {
+      margin-top: 22px;
+      color: var(--muted);
+      font-size: 13px;
+      text-align: center;
+    }
+    @media (max-width: 880px) {
+      .grid { grid-template-columns: 1fr; }
+      .right-col { position: static; }
+    }
+    .mobile-nav { display: none; }
+    @media (max-width: 640px) {
+      nav { display: none; }
+      .mobile-nav { display: block; }
+    }
   </style>
 </head>
 <body>
   <div class="wrap">
     <header>
       <div class="brand">
-        <div class="avatar">JP</div>
+        <div class="avatar">A8</div>
         <div>
-          <h1>Hi, I'm Jenish Patel</h1>
-          <div class="subtitle">Seasoned web developer — HTML · CSS · JavaScript</div>
+          <h1>Hi, I'm Aman8828</h1>
+          <div class="subtitle">Web Developer & Tool Creator</div>
         </div>
       </div>
       <div>
         <nav>
           <a class="menu" href="#home">Home</a>
-          <a class="menu" href="#about">About Us</a>
+          <a class="menu" href="#about">About</a>
           <a class="menu" href="#contact">Contact</a>
         </nav>
         <button class="menu mobile-nav" onclick="toggleMenu()">☰</button>
@@ -67,88 +172,87 @@
       <section>
         <article class="card hero" id="home">
           <h2 style="margin-top:0">A Passionate</h2>
-          <p>"Seasoned web developer specializing in clean code and user-focused design. Proficient in HTML, CSS, and JavaScript, committed to delivering top-notch, responsive websites."</p>
+          <p>Seasoned web developer and creator of online tools. I build responsive websites and generators that help people every day.</p>
 
           <div class="card" style="margin-top:12px">
-            <h3 style="margin:0 0 8px 0">Tools</h3>
+            <h3>Tools</h3>
             <div class="tools">
+              <a class="tool" href="#">About Us Generator</a>
               <a class="tool" href="#">BGMI Name Style</a>
               <a class="tool" href="#">PUBG Name Generator</a>
-              <a class="tool" href="#">TNPSC Photo Compressor</a>
-              <a class="tool" href="#">TNPSC Signature Compressor</a>
+              <a class="tool" href="#">Photo Compressor</a>
+              <a class="tool" href="#">Signature Compressor</a>
               <a class="tool" href="#">Stock Average Calculator</a>
-              <a class="tool" href="#">CGPA To GPA</a>
+              <a class="tool" href="#">CGPA to GPA Converter</a>
               <a class="tool" href="#">Fake Tweet Generator</a>
               <a class="tool" href="#">2048 Game</a>
+              <a class="tool" href="#">More Tools...</a>
             </div>
           </div>
 
           <div class="card" style="margin-top:12px">
-            <h3 style="margin:0 0 8px 0">Skills & Expertise</h3>
+            <h3>Skills & Expertise</h3>
             <div class="skills">
               <span class="skill">HTML</span>
               <span class="skill">CSS</span>
               <span class="skill">JavaScript</span>
               <span class="skill">Git</span>
               <span class="skill">GitHub</span>
-              <span class="skill">Photoshop</span>
+              <span class="skill">SEO</span>
             </div>
           </div>
 
           <div class="card" style="margin-top:12px">
-            <h3 style="margin:0 0 8px 0">About Me</h3>
-            <p style="margin:0;color:var(--muted)">Hi! I’m Jenish Patel, a passionate developer with a knack for building web applications. With experience in both front-end and back-end technologies, I strive to create seamless user experiences and efficient solutions.</p>
+            <h3>About Me</h3>
+            <p style="color:var(--muted)">Hi! I’m Aman, better known as Aman8828. I create useful web tools and guides for developers and students. My focus is building simple, fast, and accessible applications that solve everyday problems.</p>
           </div>
-
         </article>
 
         <article class="card" id="projects" style="margin-top:12px">
-          <h3 style="margin-top:0">Projects</h3>
-          <ul style="margin:8px 0 0 16px;color:var(--muted)">
-            <li>Personal Portfolio Website</li>
-            <li>Task Management App</li>
-            <li>Weather Forecast Dashboard</li>
+          <h3>Projects</h3>
+          <ul style="color:var(--muted); margin-left:16px;">
+            <li>About Us Generator Website</li>
+            <li>BGMI & PUBG Name Style Generator</li>
+            <li>Image Compressor Tools</li>
           </ul>
         </article>
 
         <article class="card" id="education" style="margin-top:12px">
-          <h3 style="margin-top:0">Education</h3>
-          <ul style="margin:8px 0 0 16px;color:var(--muted)">
-            <li>Diploma in Computer Engineering — Vallabh Budhi Polytechnic</li>
-            <li>B.E. Computer Engineering — MGITERC, Navsari</li>
+          <h3>Education</h3>
+          <ul style="color:var(--muted); margin-left:16px;">
+            <li>Bachelor of Computer Applications</li>
+            <li>Self‑taught Web Development</li>
           </ul>
         </article>
-
       </section>
 
       <aside class="right-col">
         <div class="card">
           <h3>Contact</h3>
-          <p style="color:var(--muted);margin:0 0 8px 0">Get in touch for freelance work or collaborations.</p>
-          <p style="margin:6px 0 0 0">Email: <a href="mailto:hello@example.com">hello@example.com</a></p>
+          <p style="color:var(--muted);">Reach me for collaborations or freelance work.</p>
+          <p>Email: <a href="mailto:aman@example.com">aman@example.com</a></p>
         </div>
 
         <div class="card" style="margin-top:12px">
           <h3>Experience</h3>
-          <p style="color:var(--muted);margin:0">Internship — CodSoft, Summer 2024</p>
+          <p style="color:var(--muted);">Internship — Web Projects, 2024</p>
         </div>
 
         <div class="card" style="margin-top:12px">
           <h3>Footer</h3>
-          <p style="color:var(--muted);margin:0">© 2025 Jenish Patel</p>
+          <p style="color:var(--muted);">© 2025 Aman8828</p>
         </div>
       </aside>
     </main>
 
     <footer>
-      <small>Built with ❤️ — Theme inspired by <em>jenishpatel14.github.io</em></small>
+      <small>Built with ❤️ — Theme inspired by jenishpatel14.github.io</small>
     </footer>
   </div>
 
   <script>
     function toggleMenu(){
       const nav = document.querySelector('nav');
-      if(!nav) return;
       if(nav.style.display==='flex') nav.style.display='none'; else nav.style.display='flex';
     }
   </script>
