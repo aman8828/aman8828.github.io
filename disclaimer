@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disclaimer | Free Digital Tools</title>
+    <meta name="description" content="Important legal information about the use of our tools and services.">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .hover-lift { transition: transform 0.3s ease; }
+        .hover-lift:hover { transform: translateY(-5px); }
+        .custom-shadow { box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+        .dropdown { display: none; }
+        .dropdown.active { display: block; }
+        .mobile-menu { display: none; }
+        .mobile-menu.active { display: block; }
+        .disclaimer-section { margin-bottom: 2.5rem; }
+        .disclaimer-section h2 { border-bottom: 1px solid #e2e8f0; padding-bottom: 0.5rem; }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-lg sticky top-0 z-50">
+        <nav class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <div class="flex items-center space-x-2">
+                    <svg class="w-8 h-8 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                    </svg>
+                    <span class="text-2xl font-bold text-gray-800" id="header-logo">LearnForAll</span>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="/" class="text-gray-700 hover:text-blue-600 font-medium">Home</a>
+                    <a href="about" class="text-gray-700 hover:text-blue-600 font-medium">About</a>
+                    <div class="relative">
+                        <button class="text-gray-700 hover:text-blue-600 font-medium flex items-center" onclick="toggleDropdown()">
+                            Tools
+                            <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
+                            </svg>
+                        </button>
+                        <div class="dropdown absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-lg border">
+                            <a href="instagram-tiktok-hashtag-tool" class="block px-4 py-3 text-sm text-gray-700 hover:bg-gray-50">Instagram & TikTok Hashtag Generator</a>
+                            <a href="youtube-tags-generator" class="block px-4 py-3 text-sm text-gray-700 hover:bg-gray-50">YouTube Tags Generator</a>
+                            <a href="seo-keyword-tags-generator" class="block px-4 py-3 text-sm text-gray-700 hover:bg-gray-50">SEO Keyword Generator</a>
+                            <a href="trending-tags-finder" class="block px-4 py-3 text-sm text-gray-700 hover:bg-gray-50">Trending Tags Finder</a>
+                            <a href="blog-post-tags-generator" class="block px-4 py-3 text-sm text-gray-700 hover:bg-gray-50">Blog Post Tags Generator</a>
+                        </div>
+                    </div>
+                    <a href="contact" class="text-gray-700 hover:text-blue-600 font-medium">Contact</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden text-gray-700" onclick="toggleMobileMenu()">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Mobile Navigation -->
+            <div class="mobile-menu md:hidden mt-4 pb-4">
+                <a href="/" class="block py-2 text-gray-700 hover:text-blue-600">Home</a>
+                <a href="about" class="block py-2 text-gray-700 hover:text-blue-600">About</a>
+                <div class="py-2">
+                    <span class="text-gray-700 font-medium">Tools</span>
+                    <div class="ml-4 mt-2 space-y-1">
+                        <a href="instagram-tiktok-hashtag-tool" class="block text-sm text-gray-600 hover:text-blue-600">Instagram & TikTok Hashtag Generator</a>
+                        <a href="youtube-tags-generator" class="block text-sm text-gray-600 hover:text-blue-600">YouTube Tags Generator</a>
+                        <a href="seo-keyword-tags-generator" class="block text-sm text-gray-600 hover:text-blue-600">SEO Keyword Generator</a>
+                        <a href="trending-tags-finder" class="block text-sm text-gray-600 hover:text-blue-600">Trending Tags Finder</a>
+                        <a href="blog-post-tags-generator" class="block text-sm text-gray-600 hover:text-blue-600">Blog Post Tags Generator</a>
+                    </div>
+                </div>
+                <a href="contact" class="block py-2 text-gray-700 hover:text-blue-600">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="gradient-bg text-white py-20">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6">Disclaimer</h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">Last Updated: <span id="current-date"></span></p>
+        </div>
+    </section>
+
+    <!-- Disclaimer Content -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="disclaimer-section">
+                    <p class="text-gray-600 mb-6">The information provided by <span id="disclaimer-domain">LearnForAll</span> ("we", "us", or "our") on our website and through our tools is for general informational purposes only.</p>
+                </div>
+
+                <div class="disclaimer-section">
+                    <h2 class="text-2xl font-bold mb-4 text-gray-800">1. No Warranties</h2>
+                    <p class="text-gray-600 mb-4">All information on the Service is provided in good faith, however we make no representation or warranty of any kind, express or implied, regarding the accuracy, adequacy, validity, reliability, availability, or completeness of any information on the Service.</p>
+                    <p class="text-gray-600">UNDER NO CIRCUMSTANCE SHALL WE HAVE ANY LIABILITY TO YOU FOR ANY LOSS OR DAMAGE OF ANY KIND INCURRED AS A RESULT OF THE USE OF THE SERVICE OR RELIANCE ON ANY INFORMATION PROVIDED ON THE SERVICE. YOUR USE OF THE SERVICE AND YOUR RELIANCE ON ANY INFORMATION ON THE SERVICE IS SOLELY AT YOUR OWN RISK.</p>
+                </div>
+
+                <div class="disclaimer-section">
+                    <h2 class="text-2xl font-bold mb-4 text-gray-800">2. External Links Disclaimer</h2>
+                    <p class="text-gray-600 mb-4">The Service may contain links to external websites that are not provided or maintained by or in any way affiliated with us. Please note that we do not guarantee the accuracy, relevance, timeliness, or completeness of any information on these external websites.</p>
+                </div>
+
+                <div class="disclaimer-section">
+                    <h2 class="text-2xl font-bold mb-4 text-gray-800">3. Professional Disclaimer</h2>
+                    <p class="text-gray-600 mb-4">The Service cannot and does not contain specific advice. The information is provided for general informational and educational purposes only and is not a substitute for professional advice.</p>
+                    <p class="text-gray-600">Accordingly, before taking any actions based upon such information, we encourage you to consult with the appropriate professionals. The use or reliance of any information contained on this site is solely at your own risk.</p>
+                </div>
+
+                <div class="disclaimer-section">
+                    <h2 class="text-2xl font-bold mb-4 text-gray-800">4. Testimonials Disclaimer</h2>
+                    <p class="text-gray-600 mb-4">The Service may contain testimonials by users of our products and/or services. These testimonials reflect the real-life experiences and opinions of such users.</p>
+                    <p class="text-gray-600">However, the experiences are personal to those particular users, and may not necessarily be representative of all users of our products and/or services. We do not claim, and you should not assume, that all users will have the same experiences.</p>
+                </div>
+
+                <div class="disclaimer-section">
+                    <h2 class="text-2xl font-bold mb-4 text-gray-800">5. Fair Use Disclaimer</h2>
+                    <p class="text-gray-600 mb-4">This Service may contain copyrighted material the use of which has not always been specifically authorized by the copyright owner. We are making such material available in our efforts to provide information and tools we believe will be useful to our users.</p>
+                    <p class="text-gray-600">We believe this constitutes a "fair use" of any such copyrighted material as provided for in section 107 of the US Copyright Law. If you wish to use copyrighted material from the Service for purposes of your own that go beyond fair use, you must obtain permission from the copyright owner.</p>
+                </div>
+
+                <div class="disclaimer-section">
+                    <h2 class="text-2xl font-bold mb-4 text-gray-800">6. Views Expressed Disclaimer</h2>
+                    <p class="text-gray-600 mb-4">The Service may contain views and opinions which are those of the authors and do not necessarily reflect the official policy or position of any other author, agency, organization, employer or company, including <span id="disclaimer-domain2">LearnForAll</span>.</p>
+                    <p class="text-gray-600">Comments published by users are their sole responsibility and the users will take full responsibility, liability and blame for any libel or litigation that results from something written in or as a direct result of something written in a comment.</p>
+                </div>
+
+                <div class="disclaimer-section">
+                    <h2 class="text-2xl font-bold mb-4 text-gray-800">7. No Responsibility Disclaimer</h2>
+                    <p class="text-gray-600 mb-4">The information on the Service is provided with the understanding that we are not herein engaged in rendering legal, accounting, tax, or other professional advice and services. As such, it should not be used as a substitute for consultation with professional accounting, tax, legal or other competent advisers.</p>
+                    <p class="text-gray-600">In no event shall <span id="disclaimer-domain3">LearnForAll</span> or its suppliers be liable for any special, incidental, indirect, or consequential damages whatsoever arising out of or in connection with your access or use or inability to access or use the Service.</p>
+                </div>
+
+                <div class="disclaimer-section">
+                    <h2 class="text-2xl font-bold mb-4 text-gray-800">8. "Use at Your Own Risk" Disclaimer</h2>
+                    <p class="text-gray-600 mb-4">All information in the Service is provided "as is", with no guarantee of completeness, accuracy, timeliness or of the results obtained from the use of this information, and without warranty of any kind, express or implied, including, but not limited to warranties of performance, merchantability and fitness for a particular purpose.</p>
+                    <p class="text-gray-600">We will not be liable to you or anyone else for any decision made or action taken in reliance on the information given by the Service or for any consequential, special or similar damages, even if advised of the possibility of such damages.</p>
+                </div>
+
+                <div class="disclaimer-section">
+                    <h2 class="text-2xl font-bold mb-4 text-gray-800">9. Contact Us</h2>
+                    <p class="text-gray-600">If you have any questions about this Disclaimer, please contact us:</p>
+                    <ul class="list-disc pl-6 text-gray-600 mt-2 space-y-1">
+                        <li>By email: <a href="#" id="disclaimer-email" class="text-blue-600 hover:underline">contact@example.com</a></li>
+                        <li>By visiting the contact page on our website</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 gradient-bg text-white text-center">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Need Further Clarification?</h2>
+            <p class="text-xl mb-8 max-w-3xl mx-auto">We're happy to answer any questions about our legal disclaimers.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="contact" class="inline-block bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition duration-300">
+                    Contact Us
+                </a>
+                <a href="/" class="inline-block border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition duration-300">
+                    Return to Home
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <svg class="w-8 h-8 text-blue-400" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                        </svg>
+                        <span class="text-2xl font-bold" id="footer-logo">LearnForAll</span>
+                    </div>
+                    <p class="text-gray-300">Free digital optimization tools for creators, marketers, and bloggers. Enhance your content and grow your audience with our powerful, easy-to-use tools.</p>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Tools</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="instagram-tiktok-hashtag-tool" class="hover:text-white">Instagram & TikTok Hashtag Tool</a></li>
+                        <li><a href="youtube-tags-generator" class="hover:text-white">YouTube Tags Generator</a></li>
+                        <li><a href="seo-keyword-tags-generator" class="hover:text-white">SEO Keyword Tags Generator</a></li>
+                        <li><a href="trending-tags-finder" class="hover:text-white">Trending Tags Finder</a></li>
+                        <li><a href="blog-post-tags-generator" class="hover:text-white">Blog Post Tags Generator</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Company</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="about" class="hover:text-white">About Us</a></li>
+                        <li><a href="contact" class="hover:text-white">Contact</a></li>
+                        <li><a href="privacy" class="hover:text-white">Privacy Policy</a></li>
+                        <li><a href="terms" class="hover:text-white">Terms & Conditions</a></li>
+                        <li><a href="disclaimer" class="hover:text-white">Disclaimer</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Newsletter</h4>
+                    <p class="text-gray-300 mb-4">Subscribe to get updates on new tools and features.</p>
+                    <form class="flex flex-col sm:flex-row sm:items-stretch sm:space-x-2 space-y-2 sm:space-y-0" onsubmit="event.preventDefault(); window.location.href='/'">
+                        <div class="flex-1">
+                            <input type="email" placeholder="Your email" class="w-full px-3 py-2 rounded-md text-gray-800 outline-none" required>
+                        </div>
+                        <div class="sm:w-auto w-full">
+                            <button type="submit" class="w-full sm:w-auto bg-blue-600 px-5 py-2 text-white rounded-md hover:bg-blue-700 transition duration-300">
+                                Subscribe
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-300">
+                <p>&copy; 2025 <span id="copyright-domain">LearnForAll</span>. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Get current domain and update all domain references
+        function updateDomainReferences() {
+            const currentDomain = window.location.hostname.replace('www.', '');
+            const domainElements = [
+                'header-logo', 'disclaimer-domain', 'disclaimer-domain2', 'disclaimer-domain3', 
+                'footer-logo', 'copyright-domain'
+            ];
+            
+            domainElements.forEach(id => {
+                const element = document.getElementById(id);
+                if (element) {
+                    element.textContent = currentDomain || 'LearnForAll';
+                }
+            });
+
+            // Update disclaimer email with current domain
+            const disclaimerEmail = document.getElementById('disclaimer-email');
+            if (disclaimerEmail) {
+                disclaimerEmail.textContent = `contact@${currentDomain || 'example.com'}`;
+                disclaimerEmail.href = `mailto:contact@${currentDomain || 'example.com'}`;
+            }
+        }
+
+        // Set current date
+        function setCurrentDate() {
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            const today = new Date();
+            document.getElementById('current-date').textContent = today.toLocaleDateString('en-US', options);
+        }
+
+        // Toggle dropdown menu
+        function toggleDropdown() {
+            const dropdown = document.querySelector('.dropdown');
+            dropdown.classList.toggle('active');
+        }
+
+        // Toggle mobile menu
+        function toggleMobileMenu() {
+            const mobileMenu = document.querySelector('.mobile-menu');
+            mobileMenu.classList.toggle('active');
+        }
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(event) {
+            const dropdown = document.querySelector('.dropdown');
+            const toolsButton = event.target.closest('button');
+            
+            if (!toolsButton || !toolsButton.textContent.includes('Tools')) {
+                dropdown.classList.remove('active');
+            }
+        });
+
+        // Initialize domain references and current date on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            updateDomainReferences();
+            setCurrentDate();
+        });
+    </script>
+</body>
+</html>

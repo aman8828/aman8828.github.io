@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About UuFree Digital Tools for Creators</title>
+    <meta name="description" content="our mission to provide free, powerful digital tools for content creators, marketers, and small businesses.">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .hover-lift { transition: transform 0.3s ease; }
+        .hover-lift:hover { transform: translateY(-5px); }
+        .custom-shadow { box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+        .dropdown { display: none; }
+        .dropdown.active { display: block; }
+        .mobile-menu { display: none; }
+        .mobile-menu.active { display: block; }
+        .mission-card { background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-lg sticky top-0 z-50">
+        <nav class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <div class="flex items-center space-x-2">
+                    <svg class="w-8 h-8 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                    </svg>
+                    <span class="text-2xl font-bold text-gray-800" id="header-logo">LearnForAll</span>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="/" class="text-gray-700 hover:text-blue-600 font-medium">Home</a>
+                    <a href="about" class="text-blue-600 font-medium">About</a>
+                    <div class="relative">
+                        <button class="text-gray-700 hover:text-blue-600 font-medium flex items-center" onclick="toggleDropdown()">
+                            Tools
+                            <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
+                            </svg>
+                        </button>
+                        <div class="dropdown absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-lg border">
+                            <a href="instagram-tiktok-hashtag-tool" class="block px-4 py-3 text-sm text-gray-700 hover:bg-gray-50">Instagram & TikTok Hashtag Generator</a>
+                            <a href="youtube-tags-generator" class="block px-4 py-3 text-sm text-gray-700 hover:bg-gray-50">YouTube Tags Generator</a>
+                            <a href="seo-keyword-tags-generator" class="block px-4 py-3 text-sm text-gray-700 hover:bg-gray-50">SEO Keyword Generator</a>
+                            <a href="trending-tags-finder" class="block px-4 py-3 text-sm text-gray-700 hover:bg-gray-50">Trending Tags Finder</a>
+                            <a href="blog-post-tags-generator" class="block px-4 py-3 text-sm text-gray-700 hover:bg-gray-50">Blog Post Tags Generator</a>
+                        </div>
+                    </div>
+                    <a href="contact" class="text-gray-700 hover:text-blue-600 font-medium">Contact</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden text-gray-700" onclick="toggleMobileMenu()">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Mobile Navigation -->
+            <div class="mobile-menu md:hidden mt-4 pb-4">
+                <a href="/" class="block py-2 text-gray-700 hover:text-blue-600">Home</a>
+                <a href="about" class="block py-2 text-blue-600 font-medium">About</a>
+                <div class="py-2">
+                    <span class="text-gray-700 font-medium">Tools</span>
+                    <div class="ml-4 mt-2 space-y-1">
+                        <a href="instagram-tiktok-hashtag-tool" class="block text-sm text-gray-600 hover:text-blue-600">Instagram & TikTok Hashtag Generator</a>
+                        <a href="youtube-tags-generator" class="block text-sm text-gray-600 hover:text-blue-600">YouTube Tags Generator</a>
+                        <a href="seo-keyword-tags-generator" class="block text-sm text-gray-600 hover:text-blue-600">SEO Keyword Generator</a>
+                        <a href="trending-tags-finder" class="block text-sm text-gray-600 hover:text-blue-600">Trending Tags Finder</a>
+                        <a href="blog-post-tags-generator" class="block text-sm text-gray-600 hover:text-blue-600">Blog Post Tags Generator</a>
+                    </div>
+                </div>
+                <a href="contact" class="block py-2 text-gray-700 hover:text-blue-600">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="gradient-bg text-white py-20">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6">About us</h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">Empowering creators and marketers with free, powerful digital optimization tools</p>
+        </div>
+    </section>
+
+    <!-- Our Story Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold mb-8 text-gray-800">Our Story</h2>
+                <div class="text-lg text-gray-600 leading-relaxed space-y-6">
+                    <p><span id="story-domain">LearnForAll</span> was created to solve a common problem in the digital world - the lack of accessible, high-quality tools for content creators and marketers. Our founders, a team of digital marketing professionals and developers, noticed how many creators struggled with expensive subscriptions, complex interfaces, or limited free versions of essential tools.</p>
+                    
+                    <p>Frustrated by seeing talented creators held back by these barriers, we set out to build a different kind of platform. One that would offer professional-grade digital tools without the usual restrictions. No paywalls, no data collection, no confusing interfaces - just powerful tools that anyone could use to grow their online presence.</p>
+
+                    <p>What began as a simple collection of SEO and social media tools has grown into a comprehensive suite of digital optimization resources. Today, thousands of creators, marketers, and small businesses rely on <span id="story2-domain">LearnForAll</span> to help them compete in an increasingly crowded digital landscape.</p>
+
+                    <p>Our journey continues as we develop new tools and improve existing ones, always guided by our core belief: that great digital tools should be available to everyone, regardless of their budget or technical skills.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Who We Serve Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Who We Serve</h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-white rounded-lg p-6 custom-shadow hover-lift">
+                    <div class="flex items-center mb-4">
+                        <svg class="w-8 h-8 text-pink-500 mr-3" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 2c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
+                        </svg>
+                        <h3 class="text-xl font-semibold text-gray-800">Content Creators</h3>
+                    </div>
+                    <p class="text-gray-600">YouTubers, TikTokers, and social media influencers who need to optimize their content for maximum reach and engagement across platforms.</p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-white rounded-lg p-6 custom-shadow hover-lift">
+                    <div class="flex items-center mb-4">
+                        <svg class="w-8 h-8 text-blue-500 mr-3" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.50-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z"/>
+                        </svg>
+                        <h3 class="text-xl font-semibold text-gray-800">Bloggers & Writers</h3>
+                    </div>
+                    <p class="text-gray-600">Content creators looking to improve their SEO, organize their posts, and reach wider audiences with properly optimized articles.</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-white rounded-lg p-6 custom-shadow hover-lift">
+                    <div class="flex items-center mb-4">
+                        <svg class="w-8 h-8 text-green-500 mr-3" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm-1 16H9V7h9v14z"/>
+                        </svg>
+                        <h3 class="text-xl font-semibold text-gray-800">Digital Marketers</h3>
+                    </div>
+                    <p class="text-gray-600">Professionals seeking efficient tools to enhance their campaigns and deliver better results for their clients without expensive subscriptions.</p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="bg-white rounded-lg p-6 custom-shadow hover-lift">
+                    <div class="flex items-center mb-4">
+                        <svg class="w-8 h-8 text-orange-500 mr-3" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M3.5 18.49l6-6.01 4 4L22 6.92l-1.41-1.41-7.09 7.97-4-4L2 16.99z"/>
+                        </svg>
+                        <h3 class="text-xl font-semibold text-gray-800">Small Businesses</h3>
+                    </div>
+                    <p class="text-gray-600">Entrepreneurs and business owners who need professional-grade marketing tools without enterprise-level budgets or complexity.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What Makes Us Different Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">What Makes Us Different</h2>
+            
+            <div class="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+                <!-- Feature 1 -->
+                <div class="flex">
+                    <div class="mr-4">
+                        <div class="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center">
+                            <svg class="w-6 h-6 text-blue-500" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-3 text-gray-800">100% Free, No Hidden Costs</h3>
+                        <p class="text-gray-600">Unlike many competitors who offer limited "free" versions to upsell premium features, all our tools are completely free with full functionality. No credit cards, no surprise charges.</p>
+                    </div>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="flex">
+                    <div class="mr-4">
+                        <div class="bg-green-100 w-12 h-12 rounded-full flex items-center justify-center">
+                            <svg class="w-6 h-6 text-green-500" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-3 text-gray-800">No Login Required</h3>
+                        <p class="text-gray-600">Access all tools instantly without creating accounts or sharing personal information. We respect your privacy and time.</p>
+                    </div>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="flex">
+                    <div class="mr-4">
+                        <div class="bg-purple-100 w-12 h-12 rounded-full flex items-center justify-center">
+                            <svg class="w-6 h-6 text-purple-500" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M13 1L13 8L20 8C21.1 8 22 8.9 22 10V20C22 21.1 21.1 22 20 22H4C2.9 22 2 21.1 2 20V4C2 2.9 2.9 2 4 2H11C12.1 2 13 2.9 13 4V1Z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-3 text-gray-800">Lightning Fast & Simple</h3>
+                        <p class="text-gray-600">Clean interfaces, instant results, and intuitive workflows mean you can focus on creating great content, not learning complicated software.</p>
+                    </div>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="flex">
+                    <div class="mr-4">
+                        <div class="bg-red-100 w-12 h-12 rounded-full flex items-center justify-center">
+                            <svg class="w-6 h-6 text-red-500" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-3 text-gray-800">Privacy-Focused</h3>
+                        <p class="text-gray-600">Your data belongs to you. We don't track your usage, sell your information, or require account creation. What happens on our site stays on our site.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission & Vision Section -->
+    <section class="py-16 gradient-bg text-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Mission -->
+                    <div class="mission-card p-8 rounded-lg">
+                        <h2 class="text-2xl font-bold mb-4">Our Mission</h2>
+                        <p class="mb-6">To democratize access to professional-grade digital optimization tools by providing free, efficient, and user-friendly resources that help creators and marketers succeed in the digital landscape.</p>
+                        <svg class="w-12 h-12 opacity-50" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2L4 5v6.09c0 5.05 3.41 9.76 8 10.91 4.59-1.15 8-5.86 8-10.91V5l-8-3z"/>
+                        </svg>
+                    </div>
+
+                    <!-- Vision -->
+                    <div class="mission-card p-8 rounded-lg">
+                        <h2 class="text-2xl font-bold mb-4">Our Vision</h2>
+                        <p class="mb-6">We envision a digital ecosystem where success is determined by the quality of ideas and content, not by access to expensive tools or technical expertise. We aims to be the catalyst that levels the playing field for all digital creators.</p>
+                        <svg class="w-12 h-12 opacity-50" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Tools Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Our Tools</h2>
+            <p class="text-xl text-center mb-12 text-gray-600 max-w-3xl mx-auto">Explore our collection of powerful, free tools designed to optimize your digital content across all platforms.</p>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- Tool 1 -->
+                <div class="bg-gray-50 rounded-lg p-6 border border-gray-200 hover-lift">
+                    <h3 class="text-xl font-semibold mb-3 text-gray-800">Instagram & TikTok Hashtag Tool</h3>
+                    <p class="text-gray-600 mb-4">Generate relevant, trending hashtags to boost your social media visibility and engagement.</p>
+                    <a href="instagram-tiktok-hashtag-tool" class="text-blue-600 hover:text-blue-800 font-medium">Try Tool →</a>
+                </div>
+
+                <!-- Tool 2 -->
+                <div class="bg-gray-50 rounded-lg p-6 border border-gray-200 hover-lift">
+                    <h3 class="text-xl font-semibold mb-3 text-gray-800">YouTube Tags Generator</h3>
+                    <p class="text-gray-600 mb-4">Create optimized tags to improve your video's discoverability and ranking on YouTube.</p>
+                    <a href="youtube-tags-generator" class="text-blue-600 hover:text-blue-800 font-medium">Try Tool →</a>
+                </div>
+
+                <!-- Tool 3 -->
+                <div class="bg-gray-50 rounded-lg p-6 border border-gray-200 hover-lift">
+                    <h3 class="text-xl font-semibold mb-3 text-gray-800">SEO Keyword Tags Generator</h3>
+                    <p class="text-gray-600 mb-4">Discover the perfect keywords to boost your website's search engine ranking and traffic.</p>
+                    <a href="seo-keyword-tags-generator" class="text-blue-600 hover:text-blue-800 font-medium">Try Tool →</a>
+                </div>
+
+                <!-- Tool 4 -->
+                <div class="bg-gray-50 rounded-lg p-6 border border-gray-200 hover-lift">
+                    <h3 class="text-xl font-semibold mb-3 text-gray-800">Trending Tags Finder</h3>
+                    <p class="text-gray-600 mb-4">Stay ahead of the curve with real-time trending hashtags and keywords for your niche.</p>
+                    <a href="trending-tags-finder" class="text-blue-600 hover:text-blue-800 font-medium">Try Tool →</a>
+                </div>
+
+                <!-- Tool 5 -->
+                <div class="bg-gray-50 rounded-lg p-6 border border-gray-200 hover-lift">
+                    <h3 class="text-xl font-semibold mb-3 text-gray-800">Blog Post Tags Generator</h3>
+                    <p class="text-gray-600 mb-4">Create perfect tags for your blog posts to increase readership and engagement.</p>
+                    <a href="blog-post-tags-generator" class="text-blue-600 hover:text-blue-800 font-medium">Try Tool →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Commitment Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Our Commitment to You</h2>
+            
+            <div class="max-w-4xl mx-auto">
+                <!-- Commitment 1 -->
+                <div class="mb-12">
+                    <h3 class="text-2xl font-semibold mb-4 text-gray-800">Data Privacy & Security</h3>
+                    <div class="text-gray-600 leading-relaxed space-y-4">
+                        <p>At <span id="commitment-domain">LearnForAll</span>, we take your privacy seriously. We don't collect personal information, track your usage patterns, or sell your data to third parties. Our tools operate client-side whenever possible, meaning your data never leaves your device.</p>
+                        <p>When server processing is necessary, we implement strict security measures and immediately delete any temporary data after processing. We believe your content and data should remain yours alone.</p>
+                    </div>
+                </div>
+
+                <!-- Commitment 2 -->
+                <div class="mb-12">
+                    <h3 class="text-2xl font-semibold mb-4 text-gray-800">Ad-Free Experience</h3>
+                    <div class="text-gray-600 leading-relaxed space-y-4">
+                        <p>We believe that intrusive advertisements compromise both user experience and privacy. That's why we've made the commitment to keep <span id="commitment2-domain">LearnForAll</span> completely ad-free.</p>
+                        <p>No pop-ups, no banners, no video ads—just clean, functional tools that help you achieve your goals without distractions or privacy concerns.</p>
+                    </div>
+                </div>
+
+                <!-- Commitment 3 -->
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4 text-gray-800">Continuous Improvement</h3>
+                    <div class="text-gray-600 leading-relaxed space-y-4">
+                        <p>We're constantly working to improve our existing tools and develop new ones based on user feedback and emerging digital trends. Our team monitors platform algorithm changes to ensure our tools remain effective.</p>
+                        <p>Our commitment to you is that <span id="commitment3-domain">LearnForAll</span> will continue to evolve alongside the digital landscape, providing you with the most effective tools for your success.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 gradient-bg text-white text-center">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Optimize Your Digital Content?</h2>
+            <p class="text-xl mb-8 max-w-3xl mx-auto">Join thousands of creators who are using our free tools to enhance their online presence and reach their audience more effectively.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#tools" class="inline-block bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition duration-300">
+                    Explore Our Tools
+                </a>
+                <a href="/" class="inline-block border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition duration-300">
+                    Return to Home
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <svg class="w-8 h-8 text-blue-400" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                        </svg>
+                        <span class="text-2xl font-bold" id="footer-logo">LearnForAll</span>
+                    </div>
+                    <p class="text-gray-300">Free digital optimization tools for creators, marketers, and bloggers. Enhance your content and grow your audience with our powerful, easy-to-use tools.</p>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Tools</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="instagram-tiktok-hashtag-tool" class="hover:text-white">Instagram & TikTok Hashtag Tool</a></li>
+                        <li><a href="youtube-tags-generator" class="hover:text-white">YouTube Tags Generator</a></li>
+                        <li><a href="seo-keyword-tags-generator" class="hover:text-white">SEO Keyword Tags Generator</a></li>
+                        <li><a href="trending-tags-finder" class="hover:text-white">Trending Tags Finder</a></li>
+                        <li><a href="blog-post-tags-generator" class="hover:text-white">Blog Post Tags Generator</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Company</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="about" class="hover:text-white">About Us</a></li>
+                        <li><a href="contact" class="hover:text-white">Contact</a></li>
+                        <li><a href="privacy" class="hover:text-white">Privacy Policy</a></li>
+                        <li><a href="terms" class="hover:text-white">Terms & Conditions</a></li>
+                        <li><a href="disclaimer" class="hover:text-white">Disclaimer</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Newsletter</h4>
+                    <p class="text-gray-300 mb-4">Subscribe to get updates on new tools and features.</p>
+                    <form class="flex flex-col sm:flex-row sm:items-stretch sm:space-x-2 space-y-2 sm:space-y-0" onsubmit="event.preventDefault(); window.location.href='/'">
+                        <div class="flex-1">
+                            <input type="email" placeholder="Your email" class="w-full px-3 py-2 rounded-md text-gray-800 outline-none" required>
+                        </div>
+                        <div class="sm:w-auto w-full">
+                            <button type="submit" class="w-full sm:w-auto bg-blue-600 px-5 py-2 text-white rounded-md hover:bg-blue-700 transition duration-300">
+                                Subscribe
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-300">
+                <p>&copy; 2025 <span id="copyright-domain">LearnForAll</span>. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Get current domain and update all domain references
+        function updateDomainReferences() {
+            const currentDomain = window.location.hostname.replace('www.', '');
+            const domainElements = [
+                'header-logo', 'story-domain', 'story2-domain', 'commitment-domain', 
+                'commitment2-domain', 'commitment3-domain', 'footer-logo', 'copyright-domain'
+            ];
+            
+            domainElements.forEach(id => {
+                const element = document.getElementById(id);
+                if (element) {
+                    element.textContent = currentDomain || 'LearnForAll';
+                }
+            });
+        }
+
+        // Toggle dropdown menu
+        function toggleDropdown() {
+            const dropdown = document.querySelector('.dropdown');
+            dropdown.classList.toggle('active');
+        }
+
+        // Toggle mobile menu
+        function toggleMobileMenu() {
+            const mobileMenu = document.querySelector('.mobile-menu');
+            mobileMenu.classList.toggle('active');
+        }
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(event) {
+            const dropdown = document.querySelector('.dropdown');
+            const toolsButton = event.target.closest('button');
+            
+            if (!toolsButton || !toolsButton.textContent.includes('Tools')) {
+                dropdown.classList.remove('active');
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Initialize domain references on page load
+        document.addEventListener('DOMContentLoaded', updateDomainReferences);
+    </script>
+</body>
+</html>
