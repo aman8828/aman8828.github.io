@@ -1,3 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://aman8828.github.io/sitemap.xml
